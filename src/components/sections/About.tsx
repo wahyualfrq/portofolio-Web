@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { Download } from 'lucide-react';
 import FadeUp from '@/components/ui/FadeUp';
+import ProfileCard from '@/components/ui/ProfileCard';
 
 interface AboutProps {
   onCVClick: () => void;
@@ -15,27 +16,23 @@ export default function About({ onCVClick }: AboutProps) {
     <section id="about" className="py-20 border-t border-brandBorder/60 bg-neutral-50/50">
       <div className="max-w-[1360px] mx-auto px-6 md:px-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
-        {/* Left Side: Highly accurate Editorial Image Block */}
-        <div className="lg:col-span-5 flex justify-center">
-          <FadeUp className="w-full max-w-[420px]">
-            <div className="relative w-full aspect-square rounded-[32px] overflow-hidden shadow-2xl group">
-              {/* Overlay Grain Styling mimicking editorial photo */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10"></div>
-              
-              {/* Profile Wrapper with raw styling */}
-              <div className="absolute inset-0 bg-neutral-900 flex items-center justify-center">
-                {/* Background icon layout */}
-                <svg className="absolute inset-0 w-full h-full text-brandAccentBlue/10 p-8" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
-                </svg>
-                {/* Profile portrait */}
-                <img 
-                  src="/images/profile.png" 
-                  alt="Wahyudi Alfurqon Profile" 
-                  className="w-full h-full object-cover filter grayscale contrast-[1.15] mix-blend-luminosity hover:scale-105 transition-all duration-700 relative z-10"
-                />
-              </div>
-            </div>
+        {/* Left Side: Interactive Profile Card */}
+        <div className="lg:col-span-5 flex justify-center w-full">
+          <FadeUp className="w-full flex justify-center">
+            <ProfileCard
+              name="Wahyudi Alfurqon"
+              title="Full Stack & Android Dev"
+              handle="wahyualfrq"
+              status="Online"
+              contactText={t('contactBtn')}
+              avatarUrl="/images/profile.png"
+              showUserInfo={true}
+              enableTilt={true}
+              enableMobileTilt={false}
+              onContactClick={onCVClick}
+              behindGlowEnabled={true}
+              innerGradient="linear-gradient(145deg, rgba(37, 99, 235, 0.25) 0%, rgba(7, 17, 31, 0.95) 100%)"
+            />
           </FadeUp>
         </div>
 
