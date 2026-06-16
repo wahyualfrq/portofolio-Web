@@ -30,7 +30,7 @@ export default function About({ onCVClick }: AboutProps) {
                 </svg>
                 {/* Profile portrait */}
                 <img 
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&h=600&q=80" 
+                  src="/images/profile.jpg" 
                   alt="Wahyudi Alfurqon Profile" 
                   className="w-full h-full object-cover filter grayscale contrast-[1.15] mix-blend-luminosity hover:scale-105 transition-all duration-700 relative z-10"
                 />
