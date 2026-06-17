@@ -1,69 +1,234 @@
 @import "tailwindcss";
 
+/* Ensure full-height chain works for h-screen → h-full descendants */
+html, body {
+  height: 100%;
+}
+
 @theme {
-  --font-sans: var(--font-inter), sans-serif;
+  /* ── Colors (Material Design tokens) ── */
+  --color-primary: #000000;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #1c1b1b;
+  --color-on-primary-container: #858383;
+  --color-primary-fixed: #e5e2e1;
+  --color-primary-fixed-dim: #c8c6c5;
+  --color-on-primary-fixed: #1c1b1b;
+  --color-on-primary-fixed-variant: #474646;
+  --color-inverse-primary: #c8c6c5;
 
-  --color-brandBg: #EFEFEF;
-  --color-brandCanvas: #FFFFFF;
-  --color-brandPrimary: #111111;
-  --color-brandSecondary: #6B7280;
-  --color-brandAccentBlue: #2563EB;
-  --color-brandDark: #07111F;
-  --color-brandBorder: #E5E7EB;
+  --color-secondary: #585f6c;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #dce2f3;
+  --color-on-secondary-container: #5e6572;
+  --color-secondary-fixed: #dce2f3;
+  --color-secondary-fixed-dim: #c0c7d6;
+  --color-on-secondary-fixed: #151c27;
+  --color-on-secondary-fixed-variant: #404754;
 
-  --shadow-premium: 0px 10px 40px rgba(0, 0, 0, 0.02);
+  --color-tertiary: #000000;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #00174b;
+  --color-on-tertiary-container: #497cff;
+  --color-tertiary-fixed: #dbe1ff;
+  --color-tertiary-fixed-dim: #b4c5ff;
+  --color-on-tertiary-fixed: #00174b;
+  --color-on-tertiary-fixed-variant: #003ea8;
+
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+
+  --color-surface: #fdf8f8;
+  --color-on-surface: #1c1b1b;
+  --color-surface-variant: #e5e2e1;
+  --color-on-surface-variant: #444748;
+  --color-surface-tint: #5f5e5e;
+  --color-surface-bright: #fdf8f8;
+  --color-surface-dim: #ddd9d8;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f7f3f2;
+  --color-surface-container: #f1edec;
+  --color-surface-container-high: #ebe7e6;
+  --color-surface-container-highest: #e5e2e1;
+
+  --color-inverse-surface: #313030;
+  --color-inverse-on-surface: #f4f0ef;
+
+  --color-outline: #747878;
+  --color-outline-variant: #c4c7c7;
+
+  --color-background: #fdf8f8;
+  --color-on-background: #1c1b1b;
+
+  /* ── Border Radius ── */
+  --radius-DEFAULT: 1rem;
+  --radius-lg: 2rem;
+  --radius-xl: 3rem;
+  --radius-full: 9999px;
+
+  /* ── Spacing tokens ── */
+  --spacing-stack-sm: 8px;
+  --spacing-stack-md: 16px;
+  --spacing-stack-lg: 24px;
+  --spacing-gutter: 32px;
+  --spacing-container-max: 1280px;
+  --spacing-margin-mobile: 20px;
+  --spacing-section-gap: 120px;
+
+  /* ── Font families (all Inter, matching original config) ── */
+  --font-sans: "Inter", sans-serif;
+  --font-label-caps: "Inter", sans-serif;
+  --font-body-md: "Inter", sans-serif;
+  --font-body-lg: "Inter", sans-serif;
+  --font-headline-lg-mobile: "Inter", sans-serif;
+  --font-headline-lg: "Inter", sans-serif;
+  --font-display-xl-mobile: "Inter", sans-serif;
+  --font-display-xl: "Inter", sans-serif;
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
+/* ── Custom typography utilities ─────────────────────────────── */
+@utility text-label-caps {
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0.1em;
+  font-weight: 600;
 }
 
-/* Custom scrollbar to keep layout clean */
-::-webkit-scrollbar {
-  width: 8px;
+@utility text-body-md {
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
 }
 
-::-webkit-scrollbar-track {
-  background: #EFEFEF;
+@utility text-body-lg {
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 400;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #D1D5DB;
-  border-radius: 99px;
+@utility text-headline-lg-mobile {
+  font-size: 32px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  font-weight: 600;
 }
 
-/* Print styling for dynamic CV */
-@media print {
-  body {
-    background: white !important;
-    color: black !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-  .no-print, header, footer, section, button, div[role="dialog"] {
-    display: none !important;
-  }
-  /* Ensure the printed section occupies full width */
-  #cv-print-content {
-    border: none !important;
-    box-shadow: none !important;
-    padding: 0 !important;
-    max-height: none !important;
-    overflow: visible !important;
-  }
+@utility text-headline-lg {
+  font-size: 40px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  font-weight: 600;
 }
 
-@media screen {
-  .printable-cv-container {
-    display: none !important;
-  }
+@utility text-display-xl-mobile {
+  font-size: 48px;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  font-weight: 700;
 }
-@media print {
-  body * {
-    display: none !important;
-  }
-  .printable-cv-container, .printable-cv-container * {
-    display: block !important;
+
+@utility text-display-xl {
+  font-size: 120px;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  font-weight: 800;
+}
+
+/* ── Keyframe animations ─────────────────────────────────────── */
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes reveal-down {
+  from { opacity: 0; transform: translateY(-30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.animate-reveal-up {
+  animation: reveal-up 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.animate-reveal-down {
+  animation: reveal-down 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 1.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+@keyframes wave {
+  0% { transform: rotate( 0.0deg) }
+  10% { transform: rotate(14.0deg) }
+  20% { transform: rotate(-8.0deg) }
+  30% { transform: rotate(14.0deg) }
+  40% { transform: rotate(-4.0deg) }
+  50% { transform: rotate(10.0deg) }
+  60% { transform: rotate( 0.0deg) }
+  100% { transform: rotate( 0.0deg) }
+}
+
+.animate-wave {
+  animation: wave 2.5s infinite;
+  transform-origin: 70% 70%;
+  display: inline-block;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float-1 {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: float 4.5s ease-in-out infinite 0.5s;
+}
+
+.animate-float-3 {
+  animation: float 5s ease-in-out infinite 1s;
+}
+
+/* ── Glassmorphism badge ─────────────────────────────────────── */
+.glass-badge {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ── Outline / stroke text ───────────────────────────────────── */
+.outline-text {
+  -webkit-text-stroke: 3px #000000;
+  color: transparent;
+}
+
+/* ── Material Symbols rendering ─────────────────────────────── */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* ── Hero layout — mobile: flex-col, desktop: 2-col grid ─────── */
+.hero-layout {
+  display: flex;
+  flex-direction: column;
+  position: relative; /* contains absolutely positioned mobile photo */
+}
+
+@media (min-width: 768px) {
+  .hero-layout {
+    display: grid;
+    grid-template-columns: 42% 58%;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
