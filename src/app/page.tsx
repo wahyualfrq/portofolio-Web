@@ -156,7 +156,7 @@ export default function HomePage() {
       <div className="sticky top-0 h-screen w-full z-10 overflow-hidden bg-[#F5F5F5] flex flex-col justify-center">
         {/* Mobile Hero View */}
         <div className="flex md:hidden flex-col items-center justify-center h-full pt-16 px-6 select-none text-center">
-          <div className="w-[300px] h-[300px] sm:w-[350px] sm:h-[350px] relative flex justify-center items-center mb-6 animate-fade-in">
+          <div className="w-[250px] h-[250px] min-[360px]:w-[290px] min-[360px]:h-[290px] sm:w-[350px] sm:h-[350px] relative flex justify-center items-center mb-6 animate-fade-in">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/fix2.png"
@@ -210,10 +210,10 @@ export default function HomePage() {
         </div>
 
         {/* Desktop Hero View */}
-        <div className="hidden md:grid hero-layout h-full relative">
+        <div className="hidden md:grid grid-cols-[42%_58%] max-w-[1280px] mx-auto h-full relative">
           <div
             className="h-full relative z-10 flex flex-col justify-center
-                       pl-16 pr-6 pt-28 pb-12
+                       pl-8 md:pl-12 lg:pl-16 pr-6 pt-20 md:pt-28 pb-12
                        animate-reveal-up opacity-0"
             style={{ animationDelay: '0.4s' }}
           >
@@ -248,7 +248,7 @@ export default function HomePage() {
             className="animate-fade-in opacity-0 relative w-auto h-full flex items-center justify-center"
             style={{ animationDelay: '0.2s' }}
           >
-            <div className="relative h-full aspect-square max-w-full flex items-end justify-center p-12">
+            <div className="relative h-full aspect-square max-w-full flex items-end justify-center p-6 md:p-8 lg:p-12">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/fix.png"

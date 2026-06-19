@@ -216,20 +216,7 @@ html, body {
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
 
-/* ── Hero layout — mobile: flex-col, desktop: 2-col grid ─────── */
-.hero-layout {
-  position: relative; /* contains absolutely positioned mobile photo */
-}
 
-@media (min-width: 768px) {
-  .hero-layout {
-    display: grid;
-    grid-template-columns: 42% 58%;
-    max-width: 1280px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
 
 /* ── Container Layout Helper ── */
 .container {

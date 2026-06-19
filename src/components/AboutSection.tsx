@@ -3,6 +3,36 @@
 import { useEffect, useRef, useState } from 'react';
 import TiltedCard from './TiltedCard';
 import ScrollReveal from './ScrollReveal';
+import LogoLoop from './LogoLoop';
+import { 
+  SiReact, 
+  SiNextdotjs, 
+  SiTypescript, 
+  SiTailwindcss, 
+  SiLaravel, 
+  SiFlutter, 
+  SiPostgresql, 
+  SiMysql, 
+  SiDocker, 
+  SiGit, 
+  SiGithub, 
+  SiFigma 
+} from 'react-icons/si';
+
+const techLogos = [
+  { node: <SiNextdotjs />, title: "Next.js" },
+  { node: <SiReact />, title: "React" },
+  { node: <SiTypescript />, title: "TypeScript" },
+  { node: <SiTailwindcss />, title: "Tailwind CSS" },
+  { node: <SiLaravel />, title: "Laravel" },
+  { node: <SiFlutter />, title: "Flutter" },
+  { node: <SiPostgresql />, title: "PostgreSQL" },
+  { node: <SiMysql />, title: "MySQL" },
+  { node: <SiDocker />, title: "Docker" },
+  { node: <SiGit />, title: "Git" },
+  { node: <SiGithub />, title: "GitHub" },
+  { node: <SiFigma />, title: "Figma" },
+];
 
 export default function AboutSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -143,6 +173,21 @@ export default function AboutSection() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Tech Stack Logo Loop at the very bottom of the section */}
+      <div className="absolute bottom-4 md:bottom-6 left-0 right-0 w-full z-30">
+        <LogoLoop
+          logos={techLogos}
+          speed={40}
+          direction="left"
+          logoHeight={isMobile ? 24 : 36}
+          gap={isMobile ? 28 : 44}
+          fadeOut={true}
+          fadeOutColor="#000000"
+          scaleOnHover={true}
+          ariaLabel="Tech stack logos"
+        />
       </div>
     </section>
   );
