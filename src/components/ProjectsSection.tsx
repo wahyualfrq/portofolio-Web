@@ -447,7 +447,7 @@ export default function ProjectsSection() {
         {/* Section Label (Top mini label) */}
         <div className="mb-6 fade-in-init">
           <span className="text-xs uppercase font-bold tracking-[0.25em] text-[#666666]/70 bg-black/5 px-3.5 py-1.5 rounded-full">
-            Portfolio
+            Projects
           </span>
         </div>
 
@@ -456,13 +456,13 @@ export default function ProjectsSection() {
           {/* Left Heading */}
           <div className="fade-in-init">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#111111] leading-[1.1]">
-              Building Through Code
+              Building Digital Experiences
             </h2>
           </div>
           {/* Right Description */}
           <div className="md:text-right fade-in-init">
             <p className="text-base md:text-lg lg:text-xl text-[#666666] max-w-md md:ml-auto leading-relaxed">
-              Explore web applications, mobile experiences, and AI-powered products.
+              Explore web applications, mobile products, and user-centered design solutions.
             </p>
           </div>
         </div>
