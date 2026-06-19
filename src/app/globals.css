@@ -399,6 +399,14 @@ html, body {
 
 /* Responsiveness */
 @media (max-width: 1024px) {
+  .about-section {
+    height: auto;
+    max-height: none;
+    overflow: visible;
+    display: block;
+    padding-bottom: 100px; /* Space for the absolute LogoLoop on tablets */
+  }
+
   .about-grid {
     grid-template-columns: 1fr;
     gap: 48px;
@@ -407,7 +415,6 @@ html, body {
   .about-label-col {
     align-items: center;
   }
-
 
   .about-content {
     gap: 80px;
@@ -418,16 +425,15 @@ html, body {
   .about-section {
     border-radius: 24px 24px 0 0;
     padding-top: 64px; /* Account for smaller mobile navbar height */
-    height: 100vh;
-    max-height: 100vh;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    padding-bottom: 80px; /* Space for absolute LogoLoop on mobile */
+    height: auto;
+    max-height: none;
+    overflow: visible;
+    display: block;
   }
   
   .about-inner {
-    padding: 1.5vh 0;
+    padding: 24px 0;
   }
 
   .about-grid {
@@ -442,7 +448,6 @@ html, body {
   .about-content {
     gap: 16px;
   }
-
 
   .about-stats {
     grid-template-columns: repeat(3, 1fr);
@@ -460,7 +465,7 @@ html, body {
 
 @media (max-width: 480px) {
   .about-inner {
-    padding: 1vh 0;
+    padding: 16px 0;
   }
 
   .about-grid {
@@ -474,7 +479,6 @@ html, body {
   .about-content {
     gap: 12px;
   }
-
 
   .about-stats {
     gap: 8px;
@@ -497,7 +501,6 @@ html, body {
   .about-content {
     gap: 10px;
   }
-
 
   .about-stats {
     gap: 6px;

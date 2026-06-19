@@ -153,10 +153,10 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="sticky top-0 h-screen w-full z-10 overflow-hidden bg-[#F5F5F5] flex flex-col justify-center">
+      <div className="sticky top-0 h-[100dvh] w-full z-10 overflow-hidden bg-[#F5F5F5] flex flex-col justify-center">
         {/* Mobile Hero View */}
-        <div className="flex md:hidden flex-col items-center justify-center h-full pt-16 px-6 select-none text-center">
-          <div className="w-[250px] h-[250px] min-[360px]:w-[290px] min-[360px]:h-[290px] sm:w-[350px] sm:h-[350px] relative flex justify-center items-center mb-6 animate-fade-in">
+        <div className="flex md:hidden flex-col items-center justify-center h-full pt-[8dvh] px-6 select-none text-center">
+          <div className="w-[min(250px,30dvh)] h-[min(250px,30dvh)] min-[360px]:w-[min(280px,32dvh)] min-[360px]:h-[min(280px,32dvh)] sm:w-[350px] sm:h-[350px] relative flex justify-center items-center mb-[3dvh] animate-fade-in">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/fix2.png"
@@ -187,19 +187,19 @@ export default function HomePage() {
 
           <h1
             className="font-[800] leading-[1.1] tracking-tight text-primary text-center animate-reveal-up"
-            style={{ fontSize: 'clamp(40px, 9vw, 56px)' }}
+            style={{ fontSize: 'clamp(30px, 6dvh, 44px)' }}
           >
             <DecryptedText text="Hi, I'm" parentClassName="font-serif italic font-normal text-on-surface-variant" /><br />
             Wahyudi Alfurqon
           </h1>
 
-          <div className="text-on-surface-variant mt-4 text-[12.5px] max-w-[345px] mx-auto text-center animate-reveal-up"
+          <div className="text-on-surface-variant mt-[2dvh] text-[12px] max-w-[345px] mx-auto text-center animate-reveal-up"
                style={{ animationDelay: '0.2s' }}>
             <TrueFocus
               sentence="— a Full Stack Developer building modern|web apps, Android apps & AI-powered solutions."
               separator="|"
               manualMode={false}
-              blurAmount={3}
+              blurAmount={1.5}
               borderColor="#000000"
               glowColor="rgba(0, 0, 0, 0.15)"
               animationDuration={0.4}
