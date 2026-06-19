@@ -97,14 +97,14 @@ export default function AboutSection() {
               </span>
 
               <ScrollReveal
-                containerClassName="about-paragraph"
+                textClassName="text-[9.5px] min-[360px]:text-[10.5px] min-[480px]:text-[12px] md:text-[28px] lg:text-[36px] font-bold leading-[1.3] min-[360px]:leading-[1.35] min-[480px]:leading-[1.4] text-white/85 tracking-[-0.02em] text-justify [text-justify:inter-word] break-words [hyphens:auto] [-webkit-hyphens:auto] [-ms-hyphens:auto]"
                 baseOpacity={0.15}
                 enableBlur={true}
                 blurStrength={6}
                 baseRotation={0}
-                highlightWords={["Full", "Stack", "Developer", "AI-powered", "solutions"]}
+                highlightWords={["Full", "Stack", "Developer", "digital", "products"]}
               >
-                I'm a Full Stack Developer and Informatics student at Universitas Multi Data Palembang, focused on building scalable web, mobile, and AI-powered solutions through real-world projects, internships, and technology programs.
+                I'm a Full Stack Developer and Informatics student at Universitas Multi Data Palembang, focused on building scalable digital products through code, design, and innovation. With a blend of engineering and creative thinking, I create experiences that are functional, user-centered, and visually engaging.
               </ScrollReveal>
 
               <div className="about-stats">

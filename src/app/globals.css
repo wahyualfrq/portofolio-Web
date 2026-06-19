@@ -362,19 +362,6 @@ html, body {
   gap: clamp(30px, 4.5vh, 60px);
 }
 
-.about-paragraph {
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 1.4;
-  color: rgba(255, 255, 255, 0.85);
-  letter-spacing: -0.02em;
-  text-align: justify;
-  text-justify: inter-word;
-  word-break: break-word;
-  hyphens: auto;
-  -webkit-hyphens: auto;
-  -ms-hyphens: auto;
-}
 
 
 .about-highlight {
@@ -434,9 +421,6 @@ html, body {
     align-items: center;
   }
 
-  .about-paragraph {
-    font-size: 36px;
-  }
 
   .about-content {
     gap: 80px;
@@ -472,11 +456,6 @@ html, body {
     gap: 16px;
   }
 
-  .about-paragraph {
-    font-size: 13.5px;
-    line-height: 1.4;
-    text-align: justify;
-  }
 
   .about-stats {
     grid-template-columns: repeat(3, 1fr);
@@ -509,10 +488,6 @@ html, body {
     gap: 12px;
   }
 
-  .about-paragraph {
-    font-size: 12px;
-    line-height: 1.35;
-  }
 
   .about-stats {
     gap: 8px;
@@ -536,10 +511,6 @@ html, body {
     gap: 10px;
   }
 
-  .about-paragraph {
-    font-size: 11px;
-    line-height: 1.3;
-  }
 
   .about-stats {
     gap: 6px;
