@@ -535,5 +535,64 @@ html, body {
   }
 }
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
 
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
 
+/* Align slider left padding with support for scroll snapping offsets */
+.projects-slider-container {
+  padding-left: 20px;
+  padding-right: 20px;
+  scroll-padding-left: 20px;
+  scroll-padding-right: 20px;
+}
+
+@media (min-width: 640px) {
+  .projects-slider-container {
+    padding-left: 32px;
+    padding-right: 32px;
+    scroll-padding-left: 32px;
+    scroll-padding-right: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .projects-slider-container {
+    padding-left: 48px;
+    padding-right: 48px;
+    scroll-padding-left: 48px;
+    scroll-padding-right: 48px;
+  }
+}
+
+/* Scroll Animation Transitions */
+.fade-up-init {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.fade-up-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-init {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.fade-in-active {
+  opacity: 1;
+  transform: translateY(0);
+}

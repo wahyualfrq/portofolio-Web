@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import TrueFocus from '../components/TrueFocus';
 import DecryptedText from '../components/DecryptedText';
 import AboutSection from '../components/AboutSection';
+import ProjectsSection from '../components/ProjectsSection';
 
 export default function HomePage() {
   const [scrolled, setScrolled] = useState(false);
@@ -283,6 +284,9 @@ export default function HomePage() {
 
       {/* About Section: Scrolls up and overlaps the sticky Hero section */}
       <AboutSection />
+
+      {/* Projects Section */}
+      <ProjectsSection />
     </div>
   );
 }
