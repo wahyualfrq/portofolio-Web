@@ -5,6 +5,10 @@ import TrueFocus from '../components/TrueFocus';
 import DecryptedText from '../components/DecryptedText';
 import AboutSection from '../components/AboutSection';
 import ProjectsSection from '../components/ProjectsSection';
+import ExperienceSection from '../components/ExperienceSection';
+import SkillsSection from '../components/SkillsSection';
+import CertificationsSection from '../components/CertificationsSection';
+import ContactSection from '../components/ContactSection';
 
 export default function HomePage() {
   const [scrolled, setScrolled] = useState(false);
@@ -61,10 +65,12 @@ export default function HomePage() {
 
           <ul className="hidden md:flex items-center gap-8">
             {[
-              { href: '#about',      label: 'About'      },
-              { href: '#projects',   label: 'Projects'   },
-              { href: '#experience', label: 'Experience' },
-              { href: '#contact',    label: 'Contact'    },
+              { href: '#about',          label: 'About'          },
+              { href: '#projects',       label: 'Projects'       },
+              { href: '#experience',     label: 'Experience'     },
+              { href: '#skills',         label: 'Skills'         },
+              { href: '#certifications', label: 'Certifications' },
+              { href: '#contact',        label: 'Contact'        },
             ].map(({ href, label }) => (
               <li key={href}>
                 <a
@@ -113,10 +119,12 @@ export default function HomePage() {
       >
         <ul className="flex flex-col items-center gap-6 text-center">
           {[
-            { href: '#about',      label: 'About'      },
-            { href: '#projects',   label: 'Projects'   },
-            { href: '#experience', label: 'Experience' },
-            { href: '#contact',    label: 'Contact'    },
+            { href: '#about',          label: 'About'          },
+            { href: '#projects',       label: 'Projects'       },
+            { href: '#experience',     label: 'Experience'     },
+            { href: '#skills',         label: 'Skills'         },
+            { href: '#certifications', label: 'Certifications' },
+            { href: '#contact',        label: 'Contact'        },
           ].map(({ href, label }, idx) => (
             <li 
               key={href}
@@ -287,6 +295,18 @@ export default function HomePage() {
 
       {/* Projects Section */}
       <ProjectsSection />
+
+      {/* Experience Section */}
+      <ExperienceSection />
+
+      {/* Skills Section */}
+      <SkillsSection />
+
+      {/* Certifications Section */}
+      <CertificationsSection />
+
+      {/* Contact Section */}
+      <ContactSection />
     </div>
   );
 }

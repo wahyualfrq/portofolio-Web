@@ -90,8 +90,8 @@ export default function AboutSection() {
     };
   }, []);
 
-  const imgWidth = isMobile ? '195px' : '260px';
-  const imgHeight = isMobile ? '260px' : '347px';
+  const imgWidth = isMobile ? '195px' : '300px';
+  const imgHeight = isMobile ? '260px' : '400px';
 
   return (
     <section
@@ -105,7 +105,6 @@ export default function AboutSection() {
           <div className="about-grid">
 
             <div className="about-label-col">
-              <span className="about-label-badge hidden md:inline-flex items-center justify-center">About me</span>
               <TiltedCard
                 imageSrc="/images/about.jpg"
                 altText="Wahyudi Alfurqon"
@@ -122,20 +121,22 @@ export default function AboutSection() {
             </div>
 
             <div className="about-content">
-              <span className="about-label-badge inline-flex md:hidden items-center justify-center self-start">
-                About me
-              </span>
+              <div className="space-y-4 md:space-y-6">
+                <h3 className="font-serif italic font-bold text-neutral-200 text-3xl md:text-4xl lg:text-5xl select-none">
+                  About me
+                </h3>
 
-              <ScrollReveal
-                textClassName="text-[9.5px] min-[360px]:text-[10.5px] min-[480px]:text-[12px] md:text-[28px] lg:text-[36px] font-bold leading-[1.3] min-[360px]:leading-[1.35] min-[480px]:leading-[1.4] text-white/85 tracking-[-0.02em] text-justify [text-justify:inter-word] break-words [hyphens:auto] [-webkit-hyphens:auto] [-ms-hyphens:auto]"
-                baseOpacity={0.15}
-                enableBlur={true}
-                blurStrength={6}
-                baseRotation={0}
-                highlightWords={["Full", "Stack", "Developer", "digital", "products"]}
-              >
-                I'm a Full Stack Developer and Informatics student at Universitas Multi Data Palembang, focused on building scalable digital products through code, design, and innovation. With a blend of engineering and creative thinking, I create experiences that are functional, user-centered, and visually engaging.
-              </ScrollReveal>
+                <ScrollReveal
+                  textClassName="text-[9.5px] min-[360px]:text-[10.5px] min-[480px]:text-[12px] md:text-[18px] lg:text-[22px] font-bold leading-[1.3] min-[360px]:leading-[1.35] min-[480px]:leading-[1.4] md:leading-[1.5] lg:leading-[1.6] text-white/85 tracking-[-0.01em] text-justify [text-justify:inter-word] break-words [hyphens:auto] [-webkit-hyphens:auto] [-ms-hyphens:auto]"
+                  baseOpacity={0.15}
+                  enableBlur={true}
+                  blurStrength={6}
+                  baseRotation={0}
+                  highlightWords={["Full", "Stack", "Developer", "digital", "products"]}
+                >
+                  I'm a Full Stack Developer and Informatics student at Universitas Multi Data Palembang, focused on building scalable digital products through code, design, and innovation. With a blend of engineering and creative thinking, I create experiences that are functional, user-centered, and visually engaging.
+                </ScrollReveal>
+              </div>
 
               <div className="about-stats">
                 <div className="stat-item">

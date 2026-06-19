@@ -441,22 +441,23 @@ export default function ProjectsSection() {
   };
 
   return (
-    <section id="projects" className="relative z-20 pt-24 md:pt-32 pb-24 overflow-hidden bg-[#F5F5F5]">
+    <section id="projects" className={`relative pt-16 md:pt-20 pb-12 overflow-hidden bg-white ${modalOpen ? 'z-40' : 'z-20'}`}>
       <div className="max-w-[1400px] mx-auto px-6 md:px-16 lg:px-24">
         
         {/* Section Label (Top mini label) */}
         <div className="mb-6 fade-in-init">
-          <span className="text-xs uppercase font-bold tracking-[0.25em] text-[#666666]/70 bg-black/5 px-3.5 py-1.5 rounded-full">
+          <span className="inline-block border border-black/10 bg-white/60 text-xs px-4 py-1.5 rounded-full tracking-wider uppercase font-medium">
             Projects
           </span>
         </div>
 
         {/* Top Row Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-end mb-16 md:mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-end mb-8 md:mb-12">
           {/* Left Heading */}
           <div className="fade-in-init">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#111111] leading-[1.1]">
-              Building Digital Experiences
+              Building Digital<br/>
+              <span className="font-serif italic font-normal text-neutral-800">Experiences</span>
             </h2>
           </div>
           {/* Right Description */}
@@ -474,7 +475,7 @@ export default function ProjectsSection() {
             <span>DRAG OR SWIPE TO EXPLORE</span>
           </div>
           {/* Navigation Arrows */}
-          <div className="flex items-center space-x-3">
+          <div className="hidden md:flex items-center space-x-3">
             <button 
               onClick={scrollPrev} 
               aria-label="Previous Slide" 
@@ -538,6 +539,24 @@ export default function ProjectsSection() {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Mobile Slider Controls (Centered under the cards) */}
+      <div className="flex md:hidden justify-center items-center gap-3 mt-4">
+        <button 
+          onClick={scrollPrev} 
+          aria-label="Previous Slide" 
+          className="w-12 h-12 rounded-full border border-black/10 bg-white flex items-center justify-center text-sm text-neutral-800 hover:bg-neutral-900 hover:text-white transition-all duration-300 shadow-sm active:scale-95 cursor-pointer"
+        >
+          <FaArrowLeft />
+        </button>
+        <button 
+          onClick={scrollNext} 
+          aria-label="Next Slide" 
+          className="w-12 h-12 rounded-full border border-black/10 bg-white flex items-center justify-center text-sm text-neutral-800 hover:bg-neutral-900 hover:text-white transition-all duration-300 shadow-sm active:scale-95 cursor-pointer"
+        >
+          <FaArrowRight />
+        </button>
       </div>
 
       {/* Case Study / Project Details Modal */}
