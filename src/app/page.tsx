@@ -156,7 +156,7 @@ export default function HomePage() {
       <div className="sticky top-0 h-[100dvh] w-full z-10 overflow-hidden bg-[#F5F5F5] flex flex-col justify-center">
         {/* Mobile Hero View */}
         <div className="flex md:hidden flex-col items-center justify-center h-full pt-[8dvh] px-6 select-none text-center">
-          <div className="w-[min(250px,30dvh)] h-[min(250px,30dvh)] min-[360px]:w-[min(280px,32dvh)] min-[360px]:h-[min(280px,32dvh)] sm:w-[350px] sm:h-[350px] relative flex justify-center items-center mb-[3dvh] animate-fade-in">
+          <div className="hero-avatar-container relative flex justify-center items-center mb-[3dvh] animate-fade-in">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/fix2.png"

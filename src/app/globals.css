@@ -231,6 +231,26 @@ html, body {
   }
 }
 
+/* ── Hero Section (Mobile) ── */
+.hero-avatar-container {
+  width: min(250px, 30dvh);
+  height: min(250px, 30dvh);
+}
+
+@media (min-width: 360px) {
+  .hero-avatar-container {
+    width: min(280px, 32dvh);
+    height: min(280px, 32dvh);
+  }
+}
+
+@media (min-width: 640px) {
+  .hero-avatar-container {
+    width: 350px;
+    height: 350px;
+  }
+}
+
 /* ── About Section ── */
 
 .about-section {
