@@ -83,7 +83,7 @@ export default function ProjectsSection() {
         "Integrated the OpenAI API to process lecture notes and automatically generate calendar study tracks.",
         "Created real-time collaborative state logic for shared document editing workspaces."
       ],
-      demoLink: "#",
+      demoLink: "https://kawankampus-nine.vercel.app/",
       mockupBg: "bg-gradient-to-br from-slate-100 to-indigo-100",
       mockupIcon: <FaLaptopCode />
     },
