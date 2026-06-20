@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 
 type Certification = {
   tag: string;
@@ -13,6 +13,31 @@ type Certification = {
 
 export default function CertificationsSection() {
   const sliderRef = useRef<HTMLDivElement>(null);
+  const [activeCert, setActiveCert] = useState<Certification | null>(null);
+  const [modalOpen, setModalOpen] = useState(false);
+
+  useEffect(() => {
+    if (modalOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [modalOpen]);
+
+  const handleCardClick = (cert: Certification) => {
+    setActiveCert(cert);
+    setModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+    setTimeout(() => {
+      setActiveCert(null);
+    }, 300);
+  };
 
   const certifications: Certification[] = [
       {
@@ -20,7 +45,7 @@ export default function CertificationsSection() {
     year: '2025',
     title: 'Build a Product Management Plan Framework in Trello',
     issuer: 'Coursera',
-    verifyLink: '#',
+    verifyLink: 'https://www.coursera.org/account/accomplishments/verify/M0B67ZH4GVC0',
 
         imageUrl: '/images/certif/CERTIFICATE_LANDING_PAGE~M0B67ZH4GVC0.jpeg'
   },
@@ -29,7 +54,7 @@ export default function CertificationsSection() {
     year: '2025',
     title: 'Google Gemini Academy Certification',
     issuer: 'Google for Education',
-    verifyLink: '#',
+    verifyLink: 'https://edu.google.accredible.com/7271db66-0792-42f2-9fed-77ecb44b2a6d#acc.bk4wa6Dy',
     imageUrl: '/images/certif/k02u4z4t_1778603200237_page-0001.jpg'
   },
  {
@@ -45,7 +70,7 @@ export default function CertificationsSection() {
     year: '2026',
     title: 'Belajar Fundamental Back-End dengan JavaScript',
     issuer: 'Dicoding Academy',
-    verifyLink: '#',
+    verifyLink: 'https://www.dicoding.com/certificates/JLX1VV4G2Z72',
     imageUrl: '/images/certif/sertifikat_course_271_3582698_120526190053_page-0001.jpg'
   },
   {
@@ -53,7 +78,7 @@ export default function CertificationsSection() {
     year: '2026',
     title: 'Belajar Membuat Aplikasi Web dengan React',
     issuer: 'Dicoding Academy',
-    verifyLink: '#',
+    verifyLink: 'https://www.dicoding.com/certificates/07Z670R2JPQR',
     imageUrl: '/images/certif/sertifikat_course_403_3582698_090426153616_page-0001.jpg'
   },
   {
@@ -69,7 +94,7 @@ export default function CertificationsSection() {
     year: '2026',
     title: 'Belajar Dasar Cloud dan Gen AI di AWS',
     issuer: 'Dicoding Academy x AWS',
-    verifyLink: '#',
+    verifyLink: 'https://www.dicoding.com/certificates/1OP8RD0WLZQK',
     imageUrl: '/images/certif/sertifikat_course_251_3582698_150226164022_page-0001.jpg'
   },
   {
@@ -92,7 +117,7 @@ export default function CertificationsSection() {
   };
 
   return (
-    <section id="certifications" className="relative z-20 py-12 md:py-24 px-6 lg:px-16 border-b border-neutral-200 bg-[#F5F5F5] overflow-hidden">
+    <section id="certifications" className={`relative py-12 md:py-24 px-6 lg:px-16 border-b border-neutral-200 bg-[#F5F5F5] overflow-hidden ${modalOpen ? 'z-[60]' : 'z-20'}`}>
       <div className="max-w-[1400px] mx-auto">
         <div className="lg:grid lg:grid-cols-12 lg:gap-8 items-end pb-6 md:pb-12">
           <div className="lg:col-span-7 space-y-4">
@@ -137,16 +162,17 @@ export default function CertificationsSection() {
           {certifications.map((cert, index) => (
             <div 
               key={index} 
-              className="snap-start flex-shrink-0 w-[260px] md:w-[340px] aspect-[4/3] bg-stone-100 border border-neutral-200/60 rounded-[24px] overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 card-transition group cursor-pointer relative"
+              onClick={() => handleCardClick(cert)}
+              className="snap-start flex-shrink-0 w-[300px] sm:w-[320px] md:w-[340px] aspect-[4/3] bg-stone-100 border border-neutral-200/60 rounded-[24px] overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 card-transition group cursor-pointer relative"
             >
               {/* Visual Certificate Area */}
-              <div className="absolute inset-0 w-full h-full overflow-hidden bg-neutral-100">
+              <div className="absolute inset-0 w-full h-full overflow-hidden bg-white">
                 {cert.imageUrl ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img 
                     src={cert.imageUrl} 
                     alt={cert.title} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-contain p-2 bg-white group-hover:scale-105 transition-transform duration-500"
                   />
                 ) : (
                   <div className="w-full h-full flex flex-col justify-center items-center p-8 text-center bg-gradient-to-br from-neutral-50 to-neutral-200">
@@ -205,6 +231,112 @@ export default function CertificationsSection() {
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"/></svg>
           </button>
+        </div>
+      </div>
+
+      {/* Certification Details Modal */}
+      <div 
+        id="certModal" 
+        onClick={(e) => { if (e.target === e.currentTarget) handleCloseModal(); }}
+        className={`fixed inset-0 bg-neutral-900/80 backdrop-blur-md z-50 flex items-center justify-center p-4 md:p-6 transition-opacity duration-300 ${
+          modalOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`}
+      >
+        <div 
+          className={`w-full max-w-4xl bg-white shadow-2xl rounded-[32px] overflow-hidden transform transition-all duration-300 ease-out flex flex-col md:flex-row h-auto md:h-[400px] max-h-[90vh] ${
+            modalOpen ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-4'
+          }`}
+        >
+          {activeCert && (
+            <>
+              {/* Left Side: Large Certificate Image Preview */}
+              <div className="w-full md:w-[60%] h-[250px] min-[375px]:h-[300px] md:h-full relative overflow-hidden bg-neutral-100 flex items-center justify-center p-0 md:p-8 flex-shrink-0 border-r border-black/5">
+                {activeCert.imageUrl ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img 
+                    src={activeCert.imageUrl} 
+                    alt={activeCert.title} 
+                    className="w-full h-full object-cover md:object-contain md:max-h-[380px] rounded-none md:rounded-lg md:shadow-sm"
+                  />
+                ) : (
+                  <div className="text-neutral-400 text-xs">No Preview Available</div>
+                )}
+              </div>
+
+              {/* Right Side: Details Pane */}
+              <div className="w-full md:w-[40%] flex flex-col relative bg-white min-h-0 md:h-full">
+                
+                {/* Close Button */}
+                <button 
+                  onClick={handleCloseModal} 
+                  className="absolute top-4 right-4 md:top-6 md:right-6 w-9 h-9 rounded-full bg-neutral-100 text-neutral-600 hover:bg-neutral-200 hover:text-neutral-900 flex items-center justify-center transition-all duration-200 active:scale-95 cursor-pointer z-30 focus:outline-none" 
+                  aria-label="Close Modal"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+
+                {/* Scrollable details */}
+                <div className="flex-1 overflow-y-auto p-4 md:p-8 lg:p-10 pr-3 scrollbar-hide">
+                  <div className="space-y-3 mt-2 md:space-y-6 md:mt-4">
+                    
+                    {/* Tag & Title */}
+                    <div className="space-y-1">
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-stone-100 text-neutral-800 text-[9px] font-bold uppercase tracking-wider">
+                        {activeCert.tag}
+                      </span>
+                      <h3 className="text-sm min-[375px]:text-base md:text-xl font-black text-neutral-900 tracking-tight leading-tight uppercase">
+                        {activeCert.title}
+                      </h3>
+                    </div>
+
+                    {/* Metadata */}
+                    <div className="grid grid-cols-2 gap-4 border-t border-b border-black/5 py-3 md:py-4">
+                      <div>
+                        <span className="text-[9px] uppercase font-bold text-neutral-400 tracking-wider block">
+                          Issuer
+                        </span>
+                        <span className="text-xs md:text-sm font-bold text-neutral-800">
+                          {activeCert.issuer}
+                        </span>
+                      </div>
+                      <div>
+                        <span className="text-[9px] uppercase font-bold text-neutral-400 tracking-wider block">
+                          Year
+                        </span>
+                        <span className="text-xs md:text-sm font-bold text-neutral-800">
+                          {activeCert.year}
+                        </span>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                {/* Verification Link Button */}
+                <div className="p-4 md:p-6 md:px-8 border-t border-black/5 bg-white flex-shrink-0 z-20">
+                  {activeCert.verifyLink && activeCert.verifyLink !== '#' ? (
+                    <a 
+                      href={activeCert.verifyLink} 
+                      target="_blank" 
+                      rel="noreferrer noopener"
+                      className="w-full py-2.5 md:py-3.5 bg-gradient-to-r from-neutral-900 to-neutral-800 hover:from-black hover:to-neutral-900 active:scale-[0.98] rounded-full text-xs font-bold text-white transition-all duration-300 shadow-md flex items-center justify-center gap-2 cursor-pointer uppercase tracking-wider text-center"
+                    >
+                      <span>Verify Credential</span>
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 4h6m0 0v6m0-6L10 14"/></svg>
+                    </a>
+                  ) : (
+                    <button 
+                      disabled
+                      className="w-full py-2.5 md:py-3.5 bg-neutral-100 text-neutral-400 rounded-full text-xs font-bold flex items-center justify-center gap-2 cursor-not-allowed uppercase tracking-wider"
+                    >
+                      <span>No Verification Link</span>
+                    </button>
+                  )}
+                </div>
+
+              </div>
+            </>
+          )}
         </div>
       </div>
     </section>

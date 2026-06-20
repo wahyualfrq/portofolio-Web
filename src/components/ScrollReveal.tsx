@@ -38,6 +38,17 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
   highlightWords = []
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const splitText = useMemo(() => {
     const text = typeof children === 'string' ? children : '';
@@ -60,6 +71,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
   useEffect(() => {
     // Only run on client side
     if (typeof window === 'undefined') return;
+    if (isMobile) return;
 
     const el = containerRef.current;
     if (!el) return;
@@ -126,7 +138,35 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
     return () => {
       ctx.revert(); // Safely cleans up all ScrollTriggers on unmount/re-render
     };
-  }, [scrollContainerRef, enableBlur, baseRotation, baseOpacity, rotationEnd, wordAnimationEnd, blurStrength]);
+  }, [scrollContainerRef, enableBlur, baseRotation, baseOpacity, rotationEnd, wordAnimationEnd, blurStrength, isMobile]);
+
+  if (isMobile) {
+    return (
+      <div className={`scroll-reveal ${containerClassName}`}>
+        <p className={`scroll-reveal-text ${textClassName}`}>
+          {typeof children === 'string' ? (
+            children.split(/(\s+)/).map((word, index) => {
+              if (word.match(/^\s+$/)) return word;
+              const cleanWord = word.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "").trim();
+              const isHighlighted = highlightWords.some(
+                hWord => cleanWord.toLowerCase() === hWord.toLowerCase()
+              );
+              if (isHighlighted) {
+                return (
+                  <span className="about-highlight" key={index}>
+                    {word}
+                  </span>
+                );
+              }
+              return word;
+            })
+          ) : (
+            children
+          )}
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div ref={containerRef} className={`scroll-reveal ${containerClassName}`}>
