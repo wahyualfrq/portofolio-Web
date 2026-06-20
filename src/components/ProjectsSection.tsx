@@ -441,7 +441,7 @@ export default function ProjectsSection() {
   };
 
   return (
-    <section id="projects" className={`relative pt-10 md:pt-20 pb-6 md:pb-12 overflow-hidden bg-white ${modalOpen ? 'z-40' : 'z-20'}`}>
+    <section id="projects" className={`relative pt-10 md:pt-20 pb-6 md:pb-12 overflow-hidden bg-white ${modalOpen ? 'z-[60]' : 'z-20'}`}>
       <div className="max-w-[1400px] mx-auto px-6 md:px-16 lg:px-24">
         
         {/* Section Label (Top mini label) */}
