@@ -10,6 +10,8 @@ type ExperienceItem = {
   typeColor: string;
   description: string;
   bullets?: string[];
+  logo?: string;
+  logoClass?: string;
 };
 
 export default function ExperienceSection() {
@@ -17,82 +19,94 @@ export default function ExperienceSection() {
 
   const workItems: ExperienceItem[] = [
     {
-      date: 'Feb 2026 - Present',
+      date: 'Oct 2026 - Des 2026',
       role: 'Full Stack Web Developer Intern',
       company: 'Dinas Komunikasi dan Informatika Provinsi Sumatera Selatan',
       type: 'Government',
       typeColor: 'bg-emerald-500',
-      description: 'Currently spearheading the enhancement of digital service architectures for the public sector. Responsible for designing, implementing, and deploying performant application interfaces, standardizing database structures, and building robust backend services using modern JavaScript ecosystems.',
+      description: 'Government institution responsible for digital transformation, information systems, and public technology services in South Sumatra Province.',
       bullets: [
-        'Rebuilt administrative portals, improving layout load times by 40%.',
-        'Engineered secure, scalable RESTful APIs connecting department microservices.'
-      ]
+        'Developed the Sumsel United web platform using Laravel, delivering 10+ scalable features within a 3-month internship program.',
+        'Designed and implemented 5 core modules and database structures to support club management, scheduling, and ticketing operations.',
+        'Implemented authentication, role-based access control, and admin dashboards to streamline system administration.',
+        'Delivered a complete digital ticketing solution that improved user access and centralized ticket management.'      
+      ],
+      logo: '/images/logosumsel.png'
     },
     {
-      date: 'Jan 2026 - May 2026',
-      role: 'Coding Camp 2026 Developer',
-      company: 'DBS Foundation x Dicoding',
+      date: 'Feb 2026 - Jul 2026',
+      role: 'Full Stack Web Developer Cohort',
+      company: 'Coding Camp powered by DBS Foundation',
       type: 'Scholarship Program',
       typeColor: 'bg-blue-500',
-      description: 'Selected as part of an elite cohort to master enterprise-grade backend development, Cloud architectures, and continuous deployment systems.',
+      description: 'National technology upskilling program by DBS Foundation and Dicoding focused on Full Stack Web Development and real-world software engineering projects.',
       bullets: [
-        'Architected and documented a microservices layout utilizing Node.js, Express, and PostgreSQL.',
-        'Earned multiple professional cloud, web, and database administration credentials.'
-      ]
+        'Developed an AI-powered student productivity platform integrating chatbot, Kanban task management, and location-based recommendations in a 6-member cross-functional team.',
+        'Designed and implemented responsive web interfaces while integrating REST APIs across frontend, backend, and AI services.',
+        'Collaborated with AI Engineers and Data Science teams to deliver scalable features and a unified user experience.',
+        'Optimized application quality and performance, achieving Google PageSpeed scores of 99 (Desktop), 89 (Mobile), 100 Best Practices, and 92 SEO.'
+      ],
+      logo: '/images/LogoCoding.png',
     },
     {
-      date: 'Jun 2024 - Present',
+      date: 'Mar 2026 - Apr 2026',
       role: 'Freelance Full Stack Developer',
-      company: 'Self-employed / Remote',
+      company: 'Rextechnology',
       type: 'Freelance',
       typeColor: 'bg-indigo-500',
-      description: 'Partnering with domestic and international small-to-medium enterprises (SMEs) to engineer fully responsive web platforms, mobile products, and internal automated dashboards.',
+      description: 'Technology company providing digital solutions, software development, and IT services for businesses.',
       bullets: [
-        'Delivered 10+ custom web platforms using Next.js, Laravel, and Tailwind CSS.',
-        'Configured automated deployment scripts on VPS environments using Docker.'
-      ]
+        'Developed and deployed a bilingual corporate website using Next.js, delivering a scalable and maintainable multi-page architecture',
+        'Engineered responsive frontend components to ensure seamless user experiences across desktop and mobile devices.',
+        'Improved website quality through performance optimization, achieving Lighthouse scores of 98 Performance, 96 Best Practices, and 91 SEO.'
+      ],
+      logo: '/images/LogoRex.png'
     }
   ];
 
   const orgItems: ExperienceItem[] = [
     {
       date: '2025 - 2026',
-      role: 'Head of Information Technology Division',
-      company: 'Student Executive Board, Universitas Multi Data Palembang',
+      role: 'Creative & Multimedia Division Lead',
+      company: 'Himpunan Mahasiswa Informatika, Universitas Multi Data Palembang',
       type: 'Leadership',
       typeColor: 'bg-black',
-      description: 'Led a highly technical department of 12+ developers and system operators to handle digital infrastructure, including university-wide student platforms, hackathon landing pages, and community databases.'
-    },
-    {
-      date: '2025',
-      role: 'UI/UX Competition Coordinator',
-      company: 'Annual National IT Festival',
-      type: 'Coordinator',
-      typeColor: 'bg-purple-500',
-      description: 'Curated criteria blueprints and managed operational pipelines for a nationwide UI/UX hackathon. Formulated structured rules, coordinated with high-profile industry judges, and guided 150+ participants.'
+      description: 'Led a creative team of 10+ members while managing 100+ design and multimedia projects, overseeing visual branding, social media content, video production, and promotional materials. Collaborated across divisions to ensure consistent communication and strengthen HIMIF’s public image through strategic visual initiatives.',
+      logo: '/images/LogoHimif.png'
     },
     {
       date: '2024 - 2025',
-      role: 'Web Development Team Lead',
-      company: 'Student Innovation Group',
-      type: 'Lead',
-      typeColor: 'bg-teal-500',
-      description: 'Managed product lifecycle of campus portal software. Introduced structured agile methodologies (Kanban), hosted sprint planning reviews, and reviewed codebase contributions to maintain standard design layouts.'
+      role: 'Education & Technology Division Member',
+      company: 'Himpunan Mahasiswa Informatika, Universitas Multi Data Palembang',
+      type: 'Mentor',
+      typeColor: 'bg-purple-500',
+      description: 'Contributed to community service and educational technology programs by conducting Canva design training for 25+ participants, developing learning materials, and collaborating with the team to deliver engaging and impactful learning experiences.',
+      logo: '/images/LogoHimif.png'
     },
     {
-      date: '2024',
-      role: 'Programming Mentor',
-      company: 'IT Student Association',
+      date: '2025 - 2026',
+      role: 'Machine Learning Division Member & Multimedia Division Lead',
+      company: 'Unit Kegiatan Mahasiswa Programming, Universitas Multi Data Palembang',
       type: 'Mentor',
+      typeColor: 'bg-teal-500',
+      description: 'Led the Multimedia Division by managing a team of 15+ members and producing 30+ visual contents, including designs and event documentation, to support organizational branding and communication. Coordinated documentation for 10+ events, mentored new members to improve team productivity and collaboration, contributed to machine learning projects using real-world datasets, and guided 10+ members from various study programs in learning fundamental programming concepts.',
+      logo: '/images/LogoUKMProgramming.png'
+    },
+    {
+      date: '2025 - 2026',
+      role: 'Photography & Videography Division Member',
+      company: 'Unit Kegiatan Mahasiswa MDP TV, Universitas Multi Data Palembang',
+      type: 'Coordinator',
       typeColor: 'bg-rose-500',
-      description: 'Trained 80+ junior college undergraduates in modern frontend practices (HTML5, CSS3, Tailwind, basic JavaScript). Devised programming lab materials and conducted bi-weekly mentoring evaluations.'
+      description: 'Led a team of 10+ members in planning and executing event documentation and creative campaigns, delivering 15+ visual and multimedia assets that enhanced event visibility, engagement, and overall participant experience.',
+      logo: '/images/LogoMDPTv.png'
     }
   ];
 
   return (
-    <section id="experience" className="relative z-20 py-24 px-6 lg:px-16 border-b border-neutral-200 bg-[#F5F5F5]">
+    <section id="experience" className="relative z-20 py-12 md:py-24 px-6 lg:px-16 border-b border-neutral-200 bg-[#F5F5F5]">
       <div className="max-w-[1400px] mx-auto">
-        <div className="lg:grid lg:grid-cols-12 lg:gap-8 items-end pb-12">
+        <div className="lg:grid lg:grid-cols-12 lg:gap-8 items-end pb-6 md:pb-12">
           <div className="lg:col-span-7 space-y-4">
             <div className="inline-block border border-black/10 bg-white/60 text-xs px-4 py-1.5 rounded-full tracking-wider uppercase font-medium">
               Experience
@@ -110,7 +124,7 @@ export default function ExperienceSection() {
         </div>
 
         {/* Custom Styled Segmented Tab Controller */}
-        <div className="flex border-b border-neutral-200 mt-8 mb-12">
+        <div className="flex border-b border-neutral-200 mt-4 mb-6 md:mt-8 md:mb-12">
           <button 
             onClick={() => setActiveTab('work')} 
             className={`px-8 py-4 font-semibold text-sm tracking-wide uppercase border-b-2 transition-all duration-300 relative focus:outline-none cursor-pointer ${
@@ -145,16 +159,25 @@ export default function ExperienceSection() {
           {activeTab === 'work' && (
             <div className="transition-all duration-500 opacity-100 block space-y-4">
               {workItems.map((item, index) => (
-                <div key={index} className="border-b border-neutral-200 py-8 hover:bg-neutral-100/50 px-4 rounded-xl transition-all duration-300 group">
-                  <div className="grid md:grid-cols-12 gap-6 items-center">
-                    <div className="md:col-span-3 text-neutral-500 font-medium text-sm lg:text-base">
-                      {item.date}
+                <div key={index} className="border-b border-neutral-200 py-5 md:py-8 hover:bg-neutral-100/50 px-4 rounded-xl transition-all duration-300 group">
+                  <div className="grid md:grid-cols-12 gap-3 md:gap-6 items-center">
+                    <div className="md:col-span-6 flex items-center gap-4">
+                      {item.logo && (
+                        <img 
+                          src={item.logo} 
+                          alt="" 
+                          className={`${item.logoClass || 'w-12 h-12 md:w-14 md:h-14'} object-contain shrink-0 select-none`} 
+                        />
+                      )}
+                      <div>
+                        <h3 className="text-xl md:text-2xl font-bold text-neutral-900 group-hover:text-black transition-colors">
+                          {item.role}
+                        </h3>
+                        <p className="text-neutral-500 text-sm mt-1">{item.company}</p>
+                      </div>
                     </div>
-                    <div className="md:col-span-6">
-                      <h3 className="text-xl md:text-2xl font-bold text-neutral-900 group-hover:text-black transition-colors">
-                        {item.role}
-                      </h3>
-                      <p className="text-neutral-500 text-sm mt-1">{item.company}</p>
+                    <div className="md:col-span-3 text-neutral-500 font-medium text-sm lg:text-base md:text-center">
+                      {item.date}
                     </div>
                     <div className="md:col-span-3 md:text-right">
                       <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white border border-neutral-200">
@@ -181,16 +204,25 @@ export default function ExperienceSection() {
           {activeTab === 'org' && (
             <div className="transition-all duration-500 opacity-100 block space-y-4">
               {orgItems.map((item, index) => (
-                <div key={index} className="border-b border-neutral-200 py-8 hover:bg-neutral-100/50 px-4 rounded-xl transition-all duration-300 group">
-                  <div className="grid md:grid-cols-12 gap-6 items-center">
-                    <div className="md:col-span-3 text-neutral-500 font-medium text-sm lg:text-base">
-                      {item.date}
+                <div key={index} className="border-b border-neutral-200 py-5 md:py-8 hover:bg-neutral-100/50 px-4 rounded-xl transition-all duration-300 group">
+                  <div className="grid md:grid-cols-12 gap-3 md:gap-6 items-center">
+                    <div className="md:col-span-6 flex items-center gap-4">
+                      {item.logo && (
+                        <img 
+                          src={item.logo} 
+                          alt="" 
+                          className={`${item.logoClass || 'w-12 h-12 md:w-14 md:h-14'} object-contain shrink-0 select-none`} 
+                        />
+                      )}
+                      <div>
+                        <h3 className="text-xl md:text-2xl font-bold text-neutral-900 group-hover:text-black transition-colors">
+                          {item.role}
+                        </h3>
+                        <p className="text-neutral-500 text-sm mt-1">{item.company}</p>
+                      </div>
                     </div>
-                    <div className="md:col-span-6">
-                      <h3 className="text-xl md:text-2xl font-bold text-neutral-900 group-hover:text-black transition-colors">
-                        {item.role}
-                      </h3>
-                      <p className="text-neutral-500 text-sm mt-1">{item.company}</p>
+                    <div className="md:col-span-3 text-neutral-500 font-medium text-sm lg:text-base md:text-center">
+                      {item.date}
                     </div>
                     <div className="md:col-span-3 md:text-right">
                       <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white border border-neutral-200">

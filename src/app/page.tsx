@@ -21,10 +21,33 @@ export default function HomePage() {
 
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      const heroHeight = window.innerHeight;
+      const aboutEl = document.getElementById('about');
+      const contactEl = document.getElementById('contact');
       
+      let isOverDark = false;
+      const navbarHeight = window.innerWidth >= 768 ? 80 : 64;
+
+      if (aboutEl) {
+        const rect = aboutEl.getBoundingClientRect();
+        if (rect.top <= navbarHeight && rect.bottom > navbarHeight) {
+          isOverDark = true;
+        }
+      }
+
+      if (contactEl) {
+        const rect = contactEl.getBoundingClientRect();
+        if (rect.top <= navbarHeight && rect.bottom > navbarHeight) {
+          isOverDark = true;
+        }
+      }
+
+      if (aboutEl || contactEl) {
+        setIsDarkBg(isOverDark);
+      } else {
+        const heroHeight = window.innerHeight;
+        setIsDarkBg(scrollY >= heroHeight - 80);
+      }
       setScrolled(scrollY > 20);
-      setIsDarkBg(scrollY >= heroHeight - 80);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -84,12 +107,12 @@ export default function HomePage() {
           </ul>
 
           <div className="flex items-center gap-3">
-            <button className={`hidden sm:flex px-4 py-2.5 md:px-6 md:py-3 rounded-full font-label-caps text-label-caps text-[10px] md:text-xs transition-all duration-300 items-center gap-1.5 group ${buttonClass}`}>
+            <a href="#contact" className={`hidden sm:flex px-4 py-2.5 md:px-6 md:py-3 rounded-full font-label-caps text-label-caps text-[10px] md:text-xs transition-all duration-300 items-center gap-1.5 group ${buttonClass}`}>
               Let&apos;s Talk
               <span className="material-symbols-outlined text-[14px] md:text-[16px] group-hover:translate-x-1 transition-transform">
                 arrow_forward
               </span>
-            </button>
+            </a>
 
             <button 
               onClick={() => setMenuOpen(!menuOpen)}
@@ -150,7 +173,8 @@ export default function HomePage() {
           }`}
           style={{ transitionDelay: '300ms' }}
         >
-          <button 
+          <a 
+            href="#contact"
             onClick={() => setMenuOpen(false)}
             className="bg-white text-black px-8 py-4 rounded-full font-label-caps text-xs tracking-widest hover:bg-white/90 transition-all duration-200 flex items-center gap-2 group shadow-lg"
           >
@@ -158,14 +182,14 @@ export default function HomePage() {
             <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">
               arrow_forward
             </span>
-          </button>
+          </a>
         </div>
       </div>
 
       <div className="sticky top-0 h-[100dvh] w-full z-10 overflow-hidden bg-[#F5F5F5] flex flex-col justify-center">
         {/* Mobile Hero View */}
-        <div className="flex md:hidden flex-col items-center justify-center h-full pt-[8dvh] px-6 select-none text-center">
-          <div className="hero-avatar-container relative flex justify-center items-center mb-[3dvh] animate-fade-in">
+        <div className="flex md:hidden flex-col items-center justify-center h-full pt-[4dvh] px-6 select-none text-center">
+          <div className="hero-avatar-container relative flex justify-center items-center mb-[2dvh] animate-fade-in">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/fix2.png"
@@ -202,7 +226,7 @@ export default function HomePage() {
             Wahyudi Alfurqon
           </h1>
 
-          <div className="text-on-surface-variant mt-[2dvh] text-[12px] max-w-[345px] mx-auto text-center animate-reveal-up"
+          <div className="text-on-surface-variant mt-[1dvh] text-[12px] max-w-[345px] mx-auto text-center animate-reveal-up"
                style={{ animationDelay: '0.2s' }}>
             <TrueFocus
               sentence="— a Full Stack Developer building modern|web apps, Android apps & AI-powered solutions."

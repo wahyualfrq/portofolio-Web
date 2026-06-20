@@ -441,18 +441,18 @@ export default function ProjectsSection() {
   };
 
   return (
-    <section id="projects" className={`relative pt-16 md:pt-20 pb-12 overflow-hidden bg-white ${modalOpen ? 'z-40' : 'z-20'}`}>
+    <section id="projects" className={`relative pt-10 md:pt-20 pb-6 md:pb-12 overflow-hidden bg-white ${modalOpen ? 'z-40' : 'z-20'}`}>
       <div className="max-w-[1400px] mx-auto px-6 md:px-16 lg:px-24">
         
         {/* Section Label (Top mini label) */}
-        <div className="mb-6 fade-in-init">
+        <div className="mb-3 md:mb-6 fade-in-init">
           <span className="inline-block border border-black/10 bg-white/60 text-xs px-4 py-1.5 rounded-full tracking-wider uppercase font-medium">
             Projects
           </span>
         </div>
 
         {/* Top Row Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-end mb-8 md:mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 items-end mb-4 md:mb-12">
           {/* Left Heading */}
           <div className="fade-in-init">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#111111] leading-[1.1]">
@@ -469,7 +469,7 @@ export default function ProjectsSection() {
         </div>
 
         {/* Slider Controls Bar */}
-        <div className="flex justify-between items-center mb-8">
+        <div className="flex justify-between items-center mb-4">
           <div className="text-xs font-semibold tracking-wide text-[#666666] flex items-center gap-2 select-none">
             <FaArrowsLeftRight className="opacity-60 animate-pulse text-sm" />
             <span>DRAG OR SWIPE TO EXPLORE</span>
@@ -503,7 +503,7 @@ export default function ProjectsSection() {
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseLeave}
-          className="grab-container flex gap-6 md:gap-8 overflow-x-auto scrollbar-hide snap-x snap-mandatory projects-slider-container pb-12 select-none scroll-smooth"
+          className="grab-container flex gap-4 md:gap-8 overflow-x-auto scrollbar-hide snap-x snap-mandatory projects-slider-container pb-6 md:pb-12 select-none scroll-smooth"
         >
           {projects.map((project) => (
             <div 

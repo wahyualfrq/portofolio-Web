@@ -389,8 +389,13 @@ html, body {
 
 .about-stats {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 60px;
+  grid-template-columns: auto 1fr 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.about-stats .stat-item:first-child {
+  align-self: center;
 }
 
 .stat-item {
@@ -400,10 +405,10 @@ html, body {
 }
 
 .stat-number {
-  font-size: 68px;
+  font-size: 52px;
   font-weight: 700;
   color: #ffffff;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   letter-spacing: -0.02em;
   background: linear-gradient(180deg, #ffffff 40%, rgba(255, 255, 255, 0.4) 100%);
   -webkit-background-clip: text;
@@ -411,7 +416,7 @@ html, body {
 }
 
 .stat-label {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.6);
   line-height: 1.4;
@@ -445,45 +450,13 @@ html, body {
   .about-section {
     border-radius: 24px 24px 0 0;
     padding-top: 64px; /* Account for smaller mobile navbar height */
-    padding-bottom: 80px; /* Space for absolute LogoLoop on mobile */
+    padding-bottom: 50px; /* Space for absolute LogoLoop on mobile */
     height: auto;
     max-height: none;
     overflow: visible;
     display: block;
   }
   
-  .about-inner {
-    padding: 24px 0;
-  }
-
-  .about-grid {
-    gap: 12px;
-  }
-
-  .about-label-col {
-    gap: 12px;
-    margin-bottom: 28px; /* Lift the photo up by creating distance below it */
-  }
-
-  .about-content {
-    gap: 16px;
-  }
-
-  .about-stats {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-  }
-
-  .stat-number {
-    font-size: 32px;
-  }
-
-  .stat-label {
-    font-size: 11px;
-  }
-}
-
-@media (max-width: 480px) {
   .about-inner {
     padding: 16px 0;
   }
@@ -493,7 +466,8 @@ html, body {
   }
 
   .about-label-col {
-    margin-bottom: 18px; /* Slightly smaller margin on smaller mobile screens */
+    gap: 8px;
+    margin-bottom: 16px; /* Lift the photo up by creating distance below it */
   }
 
   .about-content {
@@ -501,7 +475,47 @@ html, body {
   }
 
   .about-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    align-items: start;
+  }
+
+  .about-stats .stat-item:first-child {
+    grid-column: span 3;
+    order: 4;
+    justify-self: start;
+    align-self: auto;
+    margin-top: 8px;
+  }
+
+  .stat-number {
+    font-size: 30px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-inner {
+    padding: 10px 0;
+  }
+
+  .about-grid {
+    gap: 6px;
+  }
+
+  .about-label-col {
+    margin-bottom: 10px; /* Slightly smaller margin on smaller mobile screens */
+  }
+
+  .about-content {
     gap: 8px;
+  }
+
+  .about-stats {
+    gap: 12px;
   }
   
   .stat-number {
@@ -523,7 +537,7 @@ html, body {
   }
 
   .about-stats {
-    gap: 6px;
+    gap: 12px;
   }
   
   .stat-number {

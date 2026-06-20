@@ -3,36 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import TiltedCard from './TiltedCard';
 import ScrollReveal from './ScrollReveal';
-import LogoLoop from './LogoLoop';
-import { 
-  SiReact, 
-  SiNextdotjs, 
-  SiTypescript, 
-  SiTailwindcss, 
-  SiLaravel, 
-  SiFlutter, 
-  SiPostgresql, 
-  SiMysql, 
-  SiDocker, 
-  SiGit, 
-  SiGithub, 
-  SiFigma 
-} from 'react-icons/si';
-
-const techLogos = [
-  { node: <SiNextdotjs />, title: "Next.js" },
-  { node: <SiReact />, title: "React" },
-  { node: <SiTypescript />, title: "TypeScript" },
-  { node: <SiTailwindcss />, title: "Tailwind CSS" },
-  { node: <SiLaravel />, title: "Laravel" },
-  { node: <SiFlutter />, title: "Flutter" },
-  { node: <SiPostgresql />, title: "PostgreSQL" },
-  { node: <SiMysql />, title: "MySQL" },
-  { node: <SiDocker />, title: "Docker" },
-  { node: <SiGit />, title: "Git" },
-  { node: <SiGithub />, title: "GitHub" },
-  { node: <SiFigma />, title: "Figma" },
-];
+import ScrollVelocity from './ScrollVelocity';
 
 export default function AboutSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -139,6 +110,16 @@ export default function AboutSection() {
               </div>
 
               <div className="about-stats">
+                <div className="stat-item justify-center">
+                  <a 
+                    href="/Wahyudi Alfurqon-resume.pdf"
+                    download="Wahyudi_Alfurqon_CV.pdf"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-3.5 border border-neutral-800 hover:border-neutral-700 bg-neutral-950/40 hover:bg-neutral-900/80 text-neutral-300 hover:text-white rounded-full text-xs md:text-sm font-semibold transition-all duration-300 group cursor-pointer backdrop-blur-sm w-fit whitespace-nowrap"
+                  >
+                    <svg className="w-3.5 h-3.5 md:w-4 md:h-4 text-neutral-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                    <span>Download CV</span>
+                  </a>
+                </div>
                 <div className="stat-item">
                   <span
                     className="stat-number"
@@ -176,18 +157,17 @@ export default function AboutSection() {
         </div>
       </div>
 
-      {/* Tech Stack Logo Loop at the very bottom of the section */}
-      <div className="absolute bottom-4 md:bottom-6 left-0 right-0 w-full z-30">
-        <LogoLoop
-          logos={techLogos}
-          speed={40}
-          direction="left"
-          logoHeight={isMobile ? 24 : 36}
-          gap={isMobile ? 28 : 44}
-          fadeOut={true}
-          fadeOutColor="#000000"
-          scaleOnHover={true}
-          ariaLabel="Tech stack logos"
+      {/* ScrollVelocity Text Scroll at the very bottom of the section */}
+      <div className="relative w-full z-30 flex flex-col gap-1 md:gap-2 overflow-hidden pointer-events-none mt-12 md:mt-auto pb-6 md:pb-8">
+        <ScrollVelocity
+          texts={[
+            'WEB DEVELOPMENT • MOBILE DEVELOPMENT • AI SOLUTIONS • UI/UX DESIGNER',
+            'CODE • DESIGN • INNOVATION • LEADERSHIP'
+          ]}
+          velocity={30}
+          parallaxClassName="relative overflow-hidden w-full flex items-center py-1 md:py-2"
+          scrollerClassName="flex whitespace-nowrap text-center pointer-events-auto"
+          className="shrink-0 inline-flex items-center text-[20px] md:text-[44px] lg:text-[60px] font-extrabold tracking-tighter uppercase text-white/15 md:text-white/5 md:hover:text-white/15 transition-colors duration-300 select-none"
         />
       </div>
     </section>

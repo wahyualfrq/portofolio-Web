@@ -51,9 +51,9 @@ export default function SkillsSection() {
   ];
 
   return (
-    <section id="skills" className="relative z-20 py-24 px-6 lg:px-16 border-b border-neutral-200 bg-[#F5F5F5]">
+    <section id="skills" className="relative z-20 py-12 md:py-24 px-6 lg:px-16 border-b border-neutral-200 bg-[#F5F5F5]">
       <div className="max-w-[1400px] mx-auto">
-        <div className="lg:grid lg:grid-cols-12 lg:gap-8 items-end pb-16">
+        <div className="lg:grid lg:grid-cols-12 lg:gap-8 items-end pb-6 md:pb-16">
           <div className="lg:col-span-7 space-y-4">
             <div className="inline-block border border-black/10 bg-white/60 text-xs px-4 py-1.5 rounded-full tracking-wider uppercase font-medium">
               Skills
@@ -73,9 +73,9 @@ export default function SkillsSection() {
         {/* 3-Column Minimal Grid Layout */}
         <div className="grid lg:grid-cols-3 gap-8">
           {categories.map((category, idx) => (
-            <div key={idx} className="bg-white rounded-3xl p-8 border border-neutral-200 shadow-sm flex flex-col justify-between">
+            <div key={idx} className="bg-white rounded-3xl p-5 md:p-8 border border-neutral-200 shadow-sm flex flex-col justify-between">
               <div>
-                <div className="flex items-center justify-between pb-6 border-b border-neutral-100 mb-6">
+                <div className="flex items-center justify-between pb-4 border-b border-neutral-100 mb-4">
                   <h3 className="text-lg font-bold uppercase tracking-wider text-black">{category.title}</h3>
                   <span className="text-xs text-neutral-400 font-medium">{category.sub}</span>
                 </div>
