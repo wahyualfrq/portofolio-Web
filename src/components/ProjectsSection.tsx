@@ -57,51 +57,20 @@ export default function ProjectsSection() {
       category: "Web Application",
       description: "An AI-powered workspace and collaborative productivity hub built to centralize academic activities, team communication, and predictive smart study plans.",
       visualHtml: (
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-100 to-indigo-50 flex items-center justify-center p-6 md:p-8 overflow-hidden select-none">
-          <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:16px_16px] opacity-60"></div>
-          {/* Laptop Mockup */}
-          <div className="relative w-[82%] md:w-auto md:h-[80%] aspect-[16/10] transition-transform duration-700 ease-out group-hover:scale-105 group-hover:rotate-1">
-            <div className="absolute inset-0 bg-black/20 rounded-lg blur-2xl transform translate-y-6 scale-95"></div>
-            <div className="relative h-full bg-[#1e1e1e] p-2 pb-2.5 rounded-2xl border border-neutral-700 shadow-2xl flex flex-col justify-between">
-              <div className="relative flex-1 bg-neutral-900 rounded-lg overflow-hidden flex flex-col">
-                <div className="bg-neutral-800 px-3 py-2 flex items-center gap-1.5 border-b border-neutral-700">
-                  <div className="w-2 h-2 rounded-full bg-red-500"></div>
-                  <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
-                  <div className="w-2 h-2 rounded-full bg-green-500"></div>
-                  <div className="ml-4 flex-1 bg-neutral-700 rounded h-3 max-w-[150px] opacity-40"></div>
-                </div>
-                <div className="p-4 flex-1 bg-[#F9FAFB] text-[#111111] font-sans flex flex-col justify-between">
-                  <div className="flex justify-between items-center border-b border-slate-100 pb-2">
-                    <div className="flex items-center gap-1">
-                      <div className="w-4 h-4 rounded bg-indigo-600 flex items-center justify-center text-[8px] text-white font-bold">K</div>
-                      <span className="text-[9px] font-bold">Kawan Kampus</span>
-                    </div>
-                    <div className="w-8 h-3.5 rounded bg-indigo-600 flex items-center justify-center text-[7px] text-white">Console</div>
-                  </div>
-                  <div className="my-auto text-center space-y-2">
-                    <h4 className="text-xs font-bold text-slate-800 leading-tight">Boost Productivity with the Best Platform</h4>
-                    <p className="text-[7px] text-slate-500 max-w-[180px] mx-auto leading-relaxed">Organize, Prioritize, and Complete Your Tasks Efficiently In One Student Platform.</p>
-                    <div className="grid grid-cols-3 gap-1.5 pt-1.5">
-                      <div className="bg-white p-1.5 rounded-md border border-slate-100 shadow-[0_1px_3px_rgba(0,0,0,0.02)] text-left">
-                        <div className="text-[6px] text-slate-400">Tasks</div>
-                        <div className="text-[9px] font-bold text-indigo-600">88% done</div>
-                      </div>
-                      <div className="bg-white p-1.5 rounded-md border border-slate-100 shadow-[0_1px_3px_rgba(0,0,0,0.02)] text-left">
-                        <div className="text-[6px] text-slate-400">Classmates</div>
-                        <div className="text-[9px] font-bold text-teal-600">14 Active</div>
-                      </div>
-                      <div className="bg-white p-1.5 rounded-md border border-slate-100 shadow-[0_1px_3px_rgba(0,0,0,0.02)] text-left">
-                        <div className="text-[6px] text-slate-400">AI Assistant</div>
-                        <div className="text-[9px] font-bold text-purple-600">Online</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="h-1 w-16 mx-auto bg-neutral-600 rounded-b-md shadow-md"></div>
-          </div>
-        </div>
+        <>
+          {/* Desktop View */}
+          <img 
+            src="/images/projects/kawankampus.webp" 
+            alt="Kawan Kampus Desktop" 
+            className="hidden md:block w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 select-none pointer-events-none"
+          />
+          {/* Mobile View */}
+          <img 
+            src="/images/projects/kawankampus2.webp" 
+            alt="Kawan Kampus Mobile" 
+            className="block md:hidden w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 select-none pointer-events-none"
+          />
+        </>
       ),
       techs: ["React", "Node.js", "MongoDB", "Tailwind CSS", "OpenAI API"],
       features: [
@@ -563,7 +532,7 @@ export default function ProjectsSection() {
                 </button>
 
                 {/* Scrollable Content Container */}
-                <div className="flex-1 overflow-y-auto p-6 md:p-8 lg:p-10 pr-4 scrollbar-hide">
+                <div data-lenis-prevent className="flex-1 overflow-y-auto p-6 md:p-8 lg:p-10 pr-4 scrollbar-hide">
                   
                   {/* Content area */}
                   <div className="space-y-6 mt-4">

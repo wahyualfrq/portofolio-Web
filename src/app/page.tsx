@@ -303,7 +303,7 @@ export default function HomePage() {
           <div className="hero-avatar-container relative flex justify-center items-center mb-[2vh] animate-fade-in">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/images/fix2.png"
+              src="/images/fix2.webp"
               alt="Wahyudi Alfurqon"
               className="w-full h-full object-contain"
             />
@@ -395,7 +395,7 @@ export default function HomePage() {
             <div className="relative h-full aspect-square max-w-full flex items-end justify-center p-6 md:p-8 lg:p-12">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/fix2.png"
+                src="/images/fix2.webp"
                 alt="Wahyudi Alfurqon"
                 className="w-full h-full object-contain object-bottom"
               />

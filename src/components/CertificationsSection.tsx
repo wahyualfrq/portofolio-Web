@@ -47,7 +47,7 @@ export default function CertificationsSection() {
     issuer: 'Coursera',
     verifyLink: 'https://www.coursera.org/account/accomplishments/verify/M0B67ZH4GVC0',
 
-        imageUrl: '/images/certif/CERTIFICATE_LANDING_PAGE~M0B67ZH4GVC0.jpeg'
+        imageUrl: '/images/certif/CERTIFICATE_LANDING_PAGE~M0B67ZH4GVC0.webp'
   },
   {
     tag: 'AI',
@@ -55,7 +55,7 @@ export default function CertificationsSection() {
     title: 'Google Gemini Academy Certification',
     issuer: 'Google for Education',
     verifyLink: 'https://edu.google.accredible.com/7271db66-0792-42f2-9fed-77ecb44b2a6d#acc.bk4wa6Dy',
-    imageUrl: '/images/certif/k02u4z4t_1778603200237_page-0001.jpg'
+    imageUrl: '/images/certif/k02u4z4t_1778603200237_page-0001.webp'
   },
  {
   tag: 'JavaScript',
@@ -63,15 +63,15 @@ export default function CertificationsSection() {
   title: 'Belajar Dasar Pemrograman JavaScript',
   issuer: 'Dicoding Academy',
   verifyLink: 'https://www.dicoding.com/certificates/EYX4Q07Y5PDL',
-  imageUrl: '/images/certif/sertifikat_course_256_3582698_310326223010_page-0001.jpg'
+  imageUrl: '/images/certif/sertifikat_course_256_3582698_310326223010_page-0001.webp'
 },
-  {
+   {
     tag: 'Back-End Developer',
     year: '2026',
     title: 'Belajar Fundamental Back-End dengan JavaScript',
     issuer: 'Dicoding Academy',
     verifyLink: 'https://www.dicoding.com/certificates/JLX1VV4G2Z72',
-    imageUrl: '/images/certif/sertifikat_course_271_3582698_120526190053_page-0001.jpg'
+    imageUrl: '/images/certif/sertifikat_course_271_3582698_120526190053_page-0001.webp'
   },
   {
     tag: 'React Developer',
@@ -79,7 +79,7 @@ export default function CertificationsSection() {
     title: 'Belajar Membuat Aplikasi Web dengan React',
     issuer: 'Dicoding Academy',
     verifyLink: 'https://www.dicoding.com/certificates/07Z670R2JPQR',
-    imageUrl: '/images/certif/sertifikat_course_403_3582698_090426153616_page-0001.jpg'
+    imageUrl: '/images/certif/sertifikat_course_403_3582698_090426153616_page-0001.webp'
   },
   {
     tag: 'Software Engineering',
@@ -87,7 +87,7 @@ export default function CertificationsSection() {
     title: 'Memulai Dasar Pemrograman untuk Menjadi Pengembang Software',
     issuer: 'Dicoding Academy',
     verifyLink: '#',
-    imageUrl: '/images/certif/sertifikat_course_237_3582698_150226143146_page-0001.jpg'
+    imageUrl: '/images/certif/sertifikat_course_237_3582698_150226143146_page-0001.webp'
   },
   {
     tag: 'Cloud & AI',
@@ -95,7 +95,7 @@ export default function CertificationsSection() {
     title: 'Belajar Dasar Cloud dan Gen AI di AWS',
     issuer: 'Dicoding Academy x AWS',
     verifyLink: 'https://www.dicoding.com/certificates/1OP8RD0WLZQK',
-    imageUrl: '/images/certif/sertifikat_course_251_3582698_150226164022_page-0001.jpg'
+    imageUrl: '/images/certif/sertifikat_course_251_3582698_150226164022_page-0001.webp'
   },
   {
   tag: 'Financial Literacy',
@@ -103,9 +103,9 @@ export default function CertificationsSection() {
   title: 'Introduction to Financial Literacy',
   issuer: 'Dicoding Academy',
   verifyLink: 'https://www.dicoding.com/certificates/N9ZO2K8ORPG5',
-  imageUrl: '/images/certif/sertifikat_course_905_3582698_130126233917_page-0001.jpg'
+  imageUrl: '/images/certif/sertifikat_course_905_3582698_130126233917_page-0001.webp'
 }
-];
+ ];
 
   const scrollSlider = (direction: 'left' | 'right') => {
     if (sliderRef.current) {
@@ -276,7 +276,7 @@ export default function CertificationsSection() {
                 </button>
 
                 {/* Scrollable details */}
-                <div className="flex-1 overflow-y-auto p-4 md:p-8 lg:p-10 pr-3 scrollbar-hide">
+                <div data-lenis-prevent className="flex-1 overflow-y-auto p-4 md:p-8 lg:p-10 pr-3 scrollbar-hide">
                   <div className="space-y-3 mt-2 md:space-y-6 md:mt-4">
                     
                     {/* Tag & Title */}

@@ -31,7 +31,7 @@ export default function ExperienceSection() {
         'Implemented authentication, role-based access control, and admin dashboards to streamline system administration.',
         'Delivered a complete digital ticketing solution that improved user access and centralized ticket management.'      
       ],
-      logo: '/images/logosumsel.png'
+      logo: '/images/logosumsel.webp'
     },
     {
       date: 'Feb 2026 - Jul 2026',
@@ -46,7 +46,7 @@ export default function ExperienceSection() {
         'Collaborated with AI Engineers and Data Science teams to deliver scalable features and a unified user experience.',
         'Optimized application quality and performance, achieving Google PageSpeed scores of 99 (Desktop), 89 (Mobile), 100 Best Practices, and 92 SEO.'
       ],
-      logo: '/images/LogoCoding.png',
+      logo: '/images/LogoCoding.webp',
     },
     {
       date: 'Mar 2026 - Apr 2026',
@@ -60,7 +60,7 @@ export default function ExperienceSection() {
         'Engineered responsive frontend components to ensure seamless user experiences across desktop and mobile devices.',
         'Improved website quality through performance optimization, achieving Lighthouse scores of 98 Performance, 96 Best Practices, and 91 SEO.'
       ],
-      logo: '/images/LogoRex.png'
+      logo: '/images/LogoRex.webp'
     }
   ];
 
@@ -72,7 +72,7 @@ export default function ExperienceSection() {
       type: 'Leadership',
       typeColor: 'bg-black',
       description: 'Led a creative team of 10+ members while managing 100+ design and multimedia projects, overseeing visual branding, social media content, video production, and promotional materials. Collaborated across divisions to ensure consistent communication and strengthen HIMIF’s public image through strategic visual initiatives.',
-      logo: '/images/LogoHimif.png'
+      logo: '/images/LogoHimif.webp'
     },
     {
       date: '2024 - 2025',
@@ -81,7 +81,7 @@ export default function ExperienceSection() {
       type: 'Mentor',
       typeColor: 'bg-purple-500',
       description: 'Contributed to community service and educational technology programs by conducting Canva design training for 25+ participants, developing learning materials, and collaborating with the team to deliver engaging and impactful learning experiences.',
-      logo: '/images/LogoHimif.png'
+      logo: '/images/LogoHimif.webp'
     },
     {
       date: '2025 - 2026',
@@ -90,7 +90,7 @@ export default function ExperienceSection() {
       type: 'Mentor',
       typeColor: 'bg-teal-500',
       description: 'Led the Multimedia Division by managing a team of 15+ members and producing 30+ visual contents, including designs and event documentation, to support organizational branding and communication. Coordinated documentation for 10+ events, mentored new members to improve team productivity and collaboration, contributed to machine learning projects using real-world datasets, and guided 10+ members from various study programs in learning fundamental programming concepts.',
-      logo: '/images/LogoUKMProgramming.png'
+      logo: '/images/LogoUKMProgramming.webp'
     },
     {
       date: '2025 - 2026',
@@ -99,7 +99,7 @@ export default function ExperienceSection() {
       type: 'Coordinator',
       typeColor: 'bg-rose-500',
       description: 'Led a team of 10+ members in planning and executing event documentation and creative campaigns, delivering 15+ visual and multimedia assets that enhanced event visibility, engagement, and overall participant experience.',
-      logo: '/images/LogoMDPTv.png'
+      logo: '/images/LogoMDPTv.webp'
     }
   ];
 

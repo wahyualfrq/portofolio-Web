@@ -77,7 +77,7 @@ export default function AboutSection() {
 
             <div className="about-label-col fade-up-init">
               <TiltedCard
-                imageSrc="/images/about.jpg"
+                imageSrc="/images/about.webp"
                 altText="Wahyudi Alfurqon"
                 captionText="Hi guys"
                 containerWidth={imgWidth}

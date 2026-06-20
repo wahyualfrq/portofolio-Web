@@ -10,7 +10,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Wahyudi Alfurqon | Full Stack Developer',
+  title: 'Wahyudi Alfurqon',
   description:
     'Building modern web applications, Android apps, and AI-powered solutions.3',
 };
