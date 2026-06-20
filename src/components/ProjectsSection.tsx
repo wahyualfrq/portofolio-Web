@@ -333,37 +333,7 @@ export default function ProjectsSection() {
     }
   ], []);
 
-  // 2. IntersectionObserver for fade-up / fade-in animation on scroll
-  useEffect(() => {
-    const cards = document.querySelectorAll('.fade-up-init');
-    const texts = document.querySelectorAll('.fade-in-init');
-    
-    const observer = new IntersectionObserver(
-      (entries) => {
-        let cardIntersectCount = 0;
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            if (entry.target.classList.contains('fade-up-init')) {
-              // Stagger the cards animation slightly if they intersect together
-              setTimeout(() => {
-                entry.target.classList.add('fade-up-active');
-              }, cardIntersectCount * 120);
-              cardIntersectCount++;
-            } else if (entry.target.classList.contains('fade-in-init')) {
-              entry.target.classList.add('fade-in-active');
-            }
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-    
-    cards.forEach((card) => observer.observe(card));
-    texts.forEach((text) => observer.observe(text));
-    
-    return () => observer.disconnect();
-  }, []);
+
 
   // 3. Scroll locking when modal is active
   useEffect(() => {

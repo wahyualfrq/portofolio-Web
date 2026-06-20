@@ -75,7 +75,7 @@ export default function AboutSection() {
         <div className="container" ref={contentRef}>
           <div className="about-grid">
 
-            <div className="about-label-col">
+            <div className="about-label-col fade-up-init">
               <TiltedCard
                 imageSrc="/images/about.jpg"
                 altText="Wahyudi Alfurqon"
@@ -93,7 +93,7 @@ export default function AboutSection() {
 
             <div className="about-content">
               <div className="space-y-4 md:space-y-6">
-                <h3 className="font-serif italic font-bold text-neutral-200 text-3xl md:text-4xl lg:text-5xl select-none">
+                <h3 className="font-serif italic font-bold text-neutral-200 text-3xl md:text-4xl lg:text-5xl select-none fade-in-init">
                   About me
                 </h3>
 
@@ -109,7 +109,7 @@ export default function AboutSection() {
                 </ScrollReveal>
               </div>
 
-              <div className="about-stats">
+              <div className="about-stats fade-up-init">
                 <div className="stat-item justify-center">
                   <a 
                     href="/Wahyudi Alfurqon-resume.pdf"

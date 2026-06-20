@@ -15,21 +15,21 @@ export default function ContactSection() {
       <div className="lg:grid lg:grid-cols-12 lg:gap-12 relative z-10 max-w-[1400px] mx-auto">
         {/* Left Panel */}
         <div className="lg:col-span-7 space-y-8">
-          <div className="inline-block bg-neutral-900 border border-neutral-800 text-xs text-neutral-300 px-4 py-1.5 rounded-full tracking-wider uppercase font-medium">
+          <div className="inline-block bg-neutral-900 border border-neutral-800 text-xs text-neutral-300 px-4 py-1.5 rounded-full tracking-wider uppercase font-medium fade-in-init">
             Connect
           </div>
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-none">
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-none fade-up-init">
             Let's Build Something<br/>
             <span className="font-serif italic font-normal text-neutral-300">Meaningful Together</span>
           </h2>
-          <p className="text-justify md:text-left text-neutral-400 text-base md:text-lg font-light max-w-xl leading-relaxed">
+          <p className="text-justify md:text-left text-neutral-400 text-base md:text-lg font-light max-w-xl leading-relaxed fade-in-init">
             Always open for freelance projects, digital collaboration, internships, technical evaluation, or simply chatting about design engineering and scalable software architectures.
           </p>
         </div>
 
         {/* Right Panel: Grid Directory */}
         <div className="lg:col-span-5 mt-16 lg:mt-0 flex flex-col justify-between">
-          <div className="border border-neutral-800 bg-neutral-950/40 p-8 rounded-3xl backdrop-blur-md space-y-6">
+          <div className="border border-neutral-800 bg-neutral-950/40 p-8 rounded-3xl backdrop-blur-md space-y-6 fade-up-init">
             <h3 className="text-lg font-bold uppercase tracking-wider text-neutral-300 border-b border-neutral-900/40 pb-4">Direct Contact</h3>
             
             <div className="space-y-4">

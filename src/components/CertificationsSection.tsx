@@ -121,16 +121,16 @@ export default function CertificationsSection() {
       <div className="max-w-[1400px] mx-auto">
         <div className="lg:grid lg:grid-cols-12 lg:gap-8 items-end pb-6 md:pb-12">
           <div className="lg:col-span-7 space-y-4">
-            <div className="inline-block border border-black/10 bg-white/60 text-xs px-4 py-1.5 rounded-full tracking-wider uppercase font-medium">
+            <div className="inline-block border border-black/10 bg-white/60 text-xs px-4 py-1.5 rounded-full tracking-wider uppercase font-medium fade-in-init">
               Certifications
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight fade-up-init">
               Continuous Learning<br/>
               <span className="font-serif italic font-normal text-neutral-800">And Growth</span>
             </h2>
           </div>
           <div className="lg:col-span-5 mt-4 lg:mt-0 flex flex-col justify-between items-start md:items-end gap-4">
-            <p className="text-neutral-500 text-sm md:text-base leading-relaxed max-w-md md:text-right">
+            <p className="text-neutral-500 text-sm md:text-base leading-relaxed max-w-md md:text-right fade-in-init">
               Professional credentials, technology programs, and standard architecture courses completed across modern development ecosystems.
             </p>
             {/* Arrow indicators */}
@@ -163,7 +163,7 @@ export default function CertificationsSection() {
             <div 
               key={index} 
               onClick={() => handleCardClick(cert)}
-              className="snap-start flex-shrink-0 w-[300px] sm:w-[320px] md:w-[340px] aspect-[4/3] bg-stone-100 border border-neutral-200/60 rounded-[24px] overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 card-transition group cursor-pointer relative"
+              className="snap-start flex-shrink-0 w-[300px] sm:w-[320px] md:w-[340px] aspect-[4/3] bg-stone-100 border border-neutral-200/60 rounded-[24px] overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 card-transition group cursor-pointer relative fade-up-init"
             >
               {/* Visual Certificate Area */}
               <div className="absolute inset-0 w-full h-full overflow-hidden bg-white">

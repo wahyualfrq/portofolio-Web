@@ -233,14 +233,14 @@ html, body {
 
 /* ── Hero Section (Mobile) ── */
 .hero-avatar-container {
-  width: min(250px, 30dvh);
-  height: min(250px, 30dvh);
+  width: min(250px, 30vh);
+  height: min(250px, 30vh);
 }
 
 @media (min-width: 360px) {
   .hero-avatar-container {
-    width: min(280px, 32dvh);
-    height: min(280px, 32dvh);
+    width: min(280px, 32vh);
+    height: min(280px, 32vh);
   }
 }
 

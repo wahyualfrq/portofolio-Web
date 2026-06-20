@@ -108,23 +108,23 @@ export default function ExperienceSection() {
       <div className="max-w-[1400px] mx-auto">
         <div className="lg:grid lg:grid-cols-12 lg:gap-8 items-end pb-6 md:pb-12">
           <div className="lg:col-span-7 space-y-4">
-            <div className="inline-block border border-black/10 bg-white/60 text-xs px-4 py-1.5 rounded-full tracking-wider uppercase font-medium">
+            <div className="inline-block border border-black/10 bg-white/60 text-xs px-4 py-1.5 rounded-full tracking-wider uppercase font-medium fade-in-init">
               Experience
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight fade-up-init">
               My Journey Through<br/>
               <span className="font-serif italic font-normal text-neutral-800">Work & Leadership</span>
             </h2>
           </div>
           <div className="lg:col-span-5 mt-4 lg:mt-0">
-            <p className="text-brandTextSecondary text-sm md:text-base leading-relaxed text-neutral-600">
+            <p className="text-brandTextSecondary text-sm md:text-base leading-relaxed text-neutral-600 fade-in-init">
               A collection of professional experiences, internships, and organizational leadership roles that shaped my growth and sharpened my engineering mindset.
             </p>
           </div>
         </div>
 
         {/* Custom Styled Segmented Tab Controller */}
-        <div className="flex border-b border-neutral-200 mt-4 mb-6 md:mt-8 md:mb-12">
+        <div className="flex border-b border-neutral-200 mt-4 mb-6 md:mt-8 md:mb-12 fade-up-init">
           <button 
             onClick={() => setActiveTab('work')} 
             className={`px-8 py-4 font-semibold text-sm tracking-wide uppercase border-b-2 transition-all duration-300 relative focus:outline-none cursor-pointer ${
@@ -156,87 +156,83 @@ export default function ExperienceSection() {
         {/* Tab Contents Wrapper */}
         <div className="relative min-h-[400px]">
           {/* Tab: WORK */}
-          {activeTab === 'work' && (
-            <div className="transition-all duration-500 opacity-100 block space-y-4">
-              {workItems.map((item, index) => (
-                <div key={index} className="border-b border-neutral-200 py-5 md:py-8 hover:bg-neutral-100/50 px-4 rounded-xl transition-all duration-300 group">
-                  <div className="grid md:grid-cols-12 gap-3 md:gap-6 items-center">
-                    <div className="md:col-span-6 flex items-center gap-4">
-                      {item.logo && (
-                        <img 
-                          src={item.logo} 
-                          alt="" 
-                          className={`${item.logoClass || 'w-12 h-12 md:w-14 md:h-14'} object-contain shrink-0 select-none`} 
-                        />
-                      )}
-                      <div>
-                        <h3 className="text-xl md:text-2xl font-bold text-neutral-900 group-hover:text-black transition-colors">
-                          {item.role}
-                        </h3>
-                        <p className="text-neutral-500 text-sm mt-1">{item.company}</p>
-                      </div>
-                    </div>
-                    <div className="md:col-span-3 text-neutral-500 font-medium text-sm lg:text-base md:text-center">
-                      {item.date}
-                    </div>
-                    <div className="md:col-span-3 md:text-right">
-                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white border border-neutral-200">
-                        <span className={`w-1.5 h-1.5 rounded-full ${item.typeColor}`}></span> {item.type}
-                      </span>
+          <div className={`transition-all duration-500 ${activeTab === 'work' ? 'opacity-100 block space-y-4' : 'hidden'}`}>
+            {workItems.map((item, index) => (
+              <div key={index} className="border border-transparent border-b-neutral-200 py-5 md:py-8 px-4 md:px-6 hover:bg-white hover:border-neutral-200/60 hover:shadow-[0_10px_30px_rgba(0,0,0,0.04)] hover:-translate-y-1 rounded-2xl transition-all duration-300 group fade-up-init">
+                <div className="grid md:grid-cols-12 gap-3 md:gap-6 items-center">
+                  <div className="md:col-span-6 flex items-center gap-4">
+                    {item.logo && (
+                      <img 
+                        src={item.logo} 
+                        alt="" 
+                        className={`${item.logoClass || 'w-12 h-12 md:w-14 md:h-14'} object-contain shrink-0 select-none`} 
+                      />
+                    )}
+                    <div>
+                      <h3 className="text-xl md:text-2xl font-bold text-neutral-900 group-hover:text-black transition-colors">
+                        {item.role}
+                      </h3>
+                      <p className="text-neutral-500 text-sm mt-1">{item.company}</p>
                     </div>
                   </div>
-                  <div className="mt-4 pt-4 border-t border-neutral-100/60 text-neutral-600 text-sm max-w-4xl leading-relaxed space-y-2">
-                    <p>{item.description}</p>
-                    {item.bullets && item.bullets.length > 0 && (
-                      <ul className="list-disc pl-5 mt-2 space-y-1">
-                        {item.bullets.map((bullet, i) => (
-                          <li key={i}>{bullet}</li>
-                        ))}
-                      </ul>
-                    )}
+                  <div className="md:col-span-3 text-neutral-500 font-medium text-sm lg:text-base md:text-center">
+                    {item.date}
+                  </div>
+                  <div className="md:col-span-3 md:text-right">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white border border-neutral-200">
+                      <span className={`w-1.5 h-1.5 rounded-full ${item.typeColor}`}></span> {item.type}
+                    </span>
                   </div>
                 </div>
-              ))}
-            </div>
-          )}
+                <div className="mt-4 pt-4 border-t border-neutral-100/60 text-neutral-600 text-sm max-w-4xl leading-relaxed space-y-2">
+                  <p>{item.description}</p>
+                  {item.bullets && item.bullets.length > 0 && (
+                    <ul className="list-disc pl-5 mt-2 space-y-1">
+                      {item.bullets.map((bullet, i) => (
+                        <li key={i}>{bullet}</li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
 
           {/* Tab: ORGANIZATION */}
-          {activeTab === 'org' && (
-            <div className="transition-all duration-500 opacity-100 block space-y-4">
-              {orgItems.map((item, index) => (
-                <div key={index} className="border-b border-neutral-200 py-5 md:py-8 hover:bg-neutral-100/50 px-4 rounded-xl transition-all duration-300 group">
-                  <div className="grid md:grid-cols-12 gap-3 md:gap-6 items-center">
-                    <div className="md:col-span-6 flex items-center gap-4">
-                      {item.logo && (
-                        <img 
-                          src={item.logo} 
-                          alt="" 
-                          className={`${item.logoClass || 'w-12 h-12 md:w-14 md:h-14'} object-contain shrink-0 select-none`} 
-                        />
-                      )}
-                      <div>
-                        <h3 className="text-xl md:text-2xl font-bold text-neutral-900 group-hover:text-black transition-colors">
-                          {item.role}
-                        </h3>
-                        <p className="text-neutral-500 text-sm mt-1">{item.company}</p>
-                      </div>
-                    </div>
-                    <div className="md:col-span-3 text-neutral-500 font-medium text-sm lg:text-base md:text-center">
-                      {item.date}
-                    </div>
-                    <div className="md:col-span-3 md:text-right">
-                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white border border-neutral-200">
-                        <span className={`w-1.5 h-1.5 rounded-full ${item.typeColor}`}></span> {item.type}
-                      </span>
+          <div className={`transition-all duration-500 ${activeTab === 'org' ? 'opacity-100 block space-y-4' : 'hidden'}`}>
+            {orgItems.map((item, index) => (
+              <div key={index} className="border border-transparent border-b-neutral-200 py-5 md:py-8 px-4 md:px-6 hover:bg-white hover:border-neutral-200/60 hover:shadow-[0_10px_30px_rgba(0,0,0,0.04)] hover:-translate-y-1 rounded-2xl transition-all duration-300 group fade-up-init">
+                <div className="grid md:grid-cols-12 gap-3 md:gap-6 items-center">
+                  <div className="md:col-span-6 flex items-center gap-4">
+                    {item.logo && (
+                      <img 
+                        src={item.logo} 
+                        alt="" 
+                        className={`${item.logoClass || 'w-12 h-12 md:w-14 md:h-14'} object-contain shrink-0 select-none`} 
+                      />
+                    )}
+                    <div>
+                      <h3 className="text-xl md:text-2xl font-bold text-neutral-900 group-hover:text-black transition-colors">
+                        {item.role}
+                      </h3>
+                      <p className="text-neutral-500 text-sm mt-1">{item.company}</p>
                     </div>
                   </div>
-                  <div className="mt-4 pt-4 border-t border-neutral-100/60 text-neutral-600 text-sm max-w-4xl leading-relaxed">
-                    {item.description}
+                  <div className="md:col-span-3 text-neutral-500 font-medium text-sm lg:text-base md:text-center">
+                    {item.date}
+                  </div>
+                  <div className="md:col-span-3 md:text-right">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white border border-neutral-200">
+                      <span className={`w-1.5 h-1.5 rounded-full ${item.typeColor}`}></span> {item.type}
+                    </span>
                   </div>
                 </div>
-              ))}
-            </div>
-          )}
+                <div className="mt-4 pt-4 border-t border-neutral-100/60 text-neutral-600 text-sm max-w-4xl leading-relaxed">
+                  {item.description}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

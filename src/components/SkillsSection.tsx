@@ -55,16 +55,16 @@ export default function SkillsSection() {
       <div className="max-w-[1400px] mx-auto">
         <div className="lg:grid lg:grid-cols-12 lg:gap-8 items-end pb-6 md:pb-16">
           <div className="lg:col-span-7 space-y-4">
-            <div className="inline-block border border-black/10 bg-white/60 text-xs px-4 py-1.5 rounded-full tracking-wider uppercase font-medium">
+            <div className="inline-block border border-black/10 bg-white/60 text-xs px-4 py-1.5 rounded-full tracking-wider uppercase font-medium fade-in-init">
               Skills
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight fade-up-init">
               Technologies I Use<br/>
               <span className="font-serif italic font-normal text-neutral-800">To Build Products</span>
             </h2>
           </div>
           <div className="lg:col-span-5 mt-4 lg:mt-0">
-            <p className="text-neutral-500 text-sm md:text-base leading-relaxed">
+            <p className="text-neutral-500 text-sm md:text-base leading-relaxed fade-in-init">
               A clinical, high-performance toolkit compiled to engineer responsive, robust layouts and digital environments from concept to live production.
             </p>
           </div>
@@ -73,7 +73,7 @@ export default function SkillsSection() {
         {/* 3-Column Minimal Grid Layout */}
         <div className="grid lg:grid-cols-3 gap-8">
           {categories.map((category, idx) => (
-            <div key={idx} className="bg-white rounded-3xl p-5 md:p-8 border border-neutral-200 shadow-sm flex flex-col justify-between">
+            <div key={idx} className="bg-white rounded-3xl p-5 md:p-8 border border-neutral-200 shadow-sm flex flex-col justify-between fade-up-init">
               <div>
                 <div className="flex items-center justify-between pb-4 border-b border-neutral-100 mb-4">
                   <h3 className="text-lg font-bold uppercase tracking-wider text-black">{category.title}</h3>

@@ -1,6 +1,9 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
+import Lenis from 'lenis';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import TrueFocus from '../components/TrueFocus';
 import DecryptedText from '../components/DecryptedText';
 import AboutSection from '../components/AboutSection';
@@ -9,16 +12,119 @@ import ExperienceSection from '../components/ExperienceSection';
 import SkillsSection from '../components/SkillsSection';
 import CertificationsSection from '../components/CertificationsSection';
 import ContactSection from '../components/ContactSection';
+import GooeyNav from '../components/GooeyNav';
 
 export default function HomePage() {
   const [scrolled, setScrolled] = useState(false);
   const [isDarkBg, setIsDarkBg] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const lenisRef = useRef<Lenis | null>(null);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    if (lenisRef.current) {
+      lenisRef.current.scrollTo(href, {
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+      });
+    } else {
+      const el = document.querySelector(href);
+      if (el) {
+        const offset = window.innerWidth >= 768 ? 80 : 64; // Navbar height
+        const elementPosition = el.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+    setMenuOpen(false);
+  };
 
   useEffect(() => {
+    // Only run on client-side
+    if (typeof window === 'undefined') return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const isMobileDevice = window.innerWidth <= 768;
+    let lenis: Lenis | null = null;
+    let updateTicker: ((time: number) => void) | null = null;
+
+    if (!isMobileDevice) {
+      lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        smoothWheel: true,
+        wheelMultiplier: 1.0,
+        touchMultiplier: 2.0,
+        infinite: false,
+      });
+
+      lenis.on('scroll', () => {
+        ScrollTrigger.update();
+      });
+
+      updateTicker = (time: number) => {
+        lenis?.raf(time * 1000);
+      };
+
+      gsap.ticker.add(updateTicker);
+      gsap.ticker.lagSmoothing(0);
+      lenisRef.current = lenis;
+    }
+
     const elements = document.querySelectorAll<HTMLElement>('.hero-layout .opacity-0');
     elements.forEach((el) => el.classList.remove('opacity-0'));
 
+    return () => {
+      if (lenis && updateTicker) {
+        gsap.ticker.remove(updateTicker);
+        lenis.destroy();
+      }
+      lenisRef.current = null;
+    };
+  }, []);
+
+  // Global Scroll Reveal Observer for all sections
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const cards = document.querySelectorAll('.fade-up-init');
+    const texts = document.querySelectorAll('.fade-in-init');
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        let cardIntersectCount = 0;
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (entry.target.classList.contains('fade-up-init')) {
+              setTimeout(() => {
+                entry.target.classList.add('fade-up-active');
+              }, cardIntersectCount * 120);
+              cardIntersectCount++;
+            } else if (entry.target.classList.contains('fade-in-init')) {
+              entry.target.classList.add('fade-in-active');
+            }
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08 }
+    );
+
+    cards.forEach((card) => observer.observe(card));
+    texts.forEach((text) => observer.observe(text));
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
       const aboutEl = document.getElementById('about');
@@ -72,9 +178,7 @@ export default function HomePage() {
     ? 'bg-[#F5F5F5]/75 backdrop-blur-md border-b border-black/5 shadow-sm'
     : 'bg-transparent border-b border-transparent';
 
-  const linkClass = isDarkBg
-    ? 'text-white/70 hover:text-white'
-    : 'text-on-surface-variant hover:text-primary';
+
 
   const buttonClass = isDarkBg
     ? 'bg-white text-black hover:bg-white/90 shadow-md'
@@ -82,32 +186,39 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-[#F5F5F5] font-body-md text-on-surface antialiased relative">
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${headerBgClass} animate-reveal-down`}>
+      <header className={`fixed top-0 left-0 right-0 z-50 overflow-hidden transition-all duration-300 ease-in-out ${headerBgClass} animate-reveal-down`}>
         <nav className="flex justify-between items-center px-5 md:px-gutter h-16 md:h-20 max-w-container-max mx-auto">
           <div />
 
-          <ul className="hidden md:flex items-center gap-8">
-            {[
-              { href: '#about',          label: 'About'          },
-              { href: '#projects',       label: 'Projects'       },
-              { href: '#experience',     label: 'Experience'     },
-              { href: '#skills',         label: 'Skills'         },
-              { href: '#certifications', label: 'Certifications' },
-              { href: '#contact',        label: 'Contact'        },
-            ].map(({ href, label }) => (
-              <li key={href}>
-                <a
-                  href={href}
-                  className={`font-label-caps text-label-caps transition-colors duration-300 ${linkClass}`}
-                >
-                  {label}
-                </a>
-              </li>
-            ))}
-          </ul>
+          {/* Desktop GooeyNav — only rendered on md+ */}
+          <div className="hidden md:block">
+            <GooeyNav
+              items={[
+                { href: '#about',          label: 'About'          },
+                { href: '#projects',       label: 'Projects'       },
+                { href: '#experience',     label: 'Experience'     },
+                { href: '#skills',         label: 'Skills'         },
+                { href: '#certifications', label: 'Certifications' },
+                { href: '#contact',        label: 'Contact'        },
+              ]}
+              particleCount={12}
+              particleDistances={[80, 8]}
+              particleR={80}
+              animationTime={500}
+              timeVariance={250}
+              colors={[1, 2, 3, 1, 2, 3, 1, 4]}
+              initialActiveIndex={0}
+              isDarkNavbar={isDarkBg}
+              onItemClick={(e, href) => handleNavClick(e, href)}
+            />
+          </div>
 
           <div className="flex items-center gap-3">
-            <a href="#contact" className={`hidden sm:flex px-4 py-2.5 md:px-6 md:py-3 rounded-full font-label-caps text-label-caps text-[10px] md:text-xs transition-all duration-300 items-center gap-1.5 group ${buttonClass}`}>
+            <a 
+              href="#contact" 
+              onClick={(e) => handleNavClick(e, '#contact')}
+              className={`hidden sm:flex px-4 py-2.5 md:px-6 md:py-3 rounded-full font-label-caps text-label-caps text-[10px] md:text-xs transition-all duration-300 items-center gap-1.5 group ${buttonClass}`}
+            >
               Let&apos;s Talk
               <span className="material-symbols-outlined text-[14px] md:text-[16px] group-hover:translate-x-1 transition-transform">
                 arrow_forward
@@ -158,7 +269,7 @@ export default function HomePage() {
             >
               <a
                 href={href}
-                onClick={() => setMenuOpen(false)}
+                onClick={(e) => handleNavClick(e, href)}
                 className="font-label-caps text-2xl tracking-widest text-white/80 hover:text-white transition-colors duration-300 block py-2"
               >
                 {label}
@@ -175,7 +286,7 @@ export default function HomePage() {
         >
           <a 
             href="#contact"
-            onClick={() => setMenuOpen(false)}
+            onClick={(e) => handleNavClick(e, '#contact')}
             className="bg-white text-black px-8 py-4 rounded-full font-label-caps text-xs tracking-widest hover:bg-white/90 transition-all duration-200 flex items-center gap-2 group shadow-lg"
           >
             Let&apos;s Talk
@@ -186,10 +297,10 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="sticky top-0 h-[100dvh] w-full z-10 overflow-hidden bg-[#F5F5F5] flex flex-col justify-center">
+      <div className="sticky top-0 h-screen w-full z-10 overflow-hidden bg-[#F5F5F5] flex flex-col justify-center will-change-transform">
         {/* Mobile Hero View */}
-        <div className="flex md:hidden flex-col items-center justify-center h-full pt-[4dvh] px-6 select-none text-center">
-          <div className="hero-avatar-container relative flex justify-center items-center mb-[2dvh] animate-fade-in">
+        <div className="flex md:hidden flex-col items-center justify-center h-full pt-[4vh] px-6 select-none text-center">
+          <div className="hero-avatar-container relative flex justify-center items-center mb-[2vh] animate-fade-in">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/fix2.png"
@@ -220,13 +331,13 @@ export default function HomePage() {
 
           <h1
             className="font-[800] leading-[1.1] tracking-tight text-primary text-center animate-reveal-up"
-            style={{ fontSize: 'clamp(30px, 6dvh, 44px)' }}
+            style={{ fontSize: 'clamp(30px, 6vh, 44px)' }}
           >
             <DecryptedText text="Hi, I'm" parentClassName="font-serif italic font-normal text-on-surface-variant" /><br />
             Wahyudi Alfurqon
           </h1>
 
-          <div className="text-on-surface-variant mt-[1dvh] text-[12px] max-w-[345px] mx-auto text-center animate-reveal-up"
+          <div className="text-on-surface-variant mt-[1vh] text-[12px] max-w-[345px] mx-auto text-center animate-reveal-up"
                style={{ animationDelay: '0.2s' }}>
             <TrueFocus
               sentence="— a Full Stack Developer building modern|web apps, Android apps & AI-powered solutions."

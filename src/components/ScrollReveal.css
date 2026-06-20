@@ -10,3 +10,15 @@
   display: inline-block;
   will-change: opacity, filter;
 }
+
+@media (max-width: 768px) {
+  .scroll-reveal {
+    transform: none !important;
+    rotate: none !important;
+  }
+  .word {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+  }
+}
