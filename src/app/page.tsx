@@ -299,7 +299,7 @@ export default function HomePage() {
 
       <div className="sticky top-0 h-screen w-full z-10 overflow-hidden bg-[#F5F5F5] flex flex-col justify-center will-change-transform">
         {/* Mobile Hero View */}
-        <div className="flex md:hidden flex-col items-center justify-center h-full pt-[4vh] px-6 select-none text-center">
+        <div className="flex md:hidden flex-col items-center justify-center h-full pt-[2vh] pb-[10vh] px-6 select-none text-center">
           <div className="hero-avatar-container relative flex justify-center items-center mb-[2vh] animate-fade-in">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
