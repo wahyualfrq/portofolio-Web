@@ -51,7 +51,7 @@ export default function ExperienceSection() {
     {
       date: 'Mar 2026 - Apr 2026',
       role: 'Freelance Full Stack Developer',
-      company: 'Rextechnology',
+      company: 'PT. Rextechnology',
       type: 'Freelance',
       typeColor: 'bg-indigo-500',
       description: 'Technology company providing digital solutions, software development, and IT services for businesses.',

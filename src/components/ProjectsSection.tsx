@@ -27,13 +27,19 @@ interface Project {
   title: string;
   category: string;
   description: string;
-  visualHtml: React.ReactNode;
+  desktopImage: string;
+  mobileImage: string;
+  timeline: string;
   techs: string[];
   features: string[];
   contributions: string[];
   demoLink: string;
   mockupBg: string; // Gradient background classes for modal cover
   mockupIcon: React.ReactNode; // Icon for modal cover
+  secondaryLink?: {
+    label: string;
+    url: string;
+  };
 }
 
 export default function ProjectsSection() {
@@ -55,33 +61,23 @@ export default function ProjectsSection() {
       id: 1,
       title: "Kawan Kampus",
       category: "Web Application",
-      description: "An AI-powered workspace and collaborative productivity hub built to centralize academic activities, team communication, and predictive smart study plans.",
-      visualHtml: (
-        <>
-          {/* Desktop View */}
-          <img 
-            src="/images/projects/kawankampus.webp" 
-            alt="Kawan Kampus Desktop" 
-            className="hidden md:block w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 select-none pointer-events-none"
-          />
-          {/* Mobile View */}
-          <img 
-            src="/images/projects/kawankampus2.webp" 
-            alt="Kawan Kampus Mobile" 
-            className="block md:hidden w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 select-none pointer-events-none"
-          />
-        </>
-      ),
-      techs: ["React", "Node.js", "MongoDB", "Tailwind CSS", "OpenAI API"],
+      description: "Kawan Kampus was developed by a multidisciplinary team of six members consisting of Full Stack Developers, AI Engineers, and Data Scientists. The development team included Wahyudi Alfurqon and Muhammad Reizan as Full Stack Developers, Irvan Maulana and Nihlah Auliya as AI Engineers, and Ratu Silma Amalia together with Calvin Constantine Raharjo as Data Scientists. Through close cross-functional collaboration, the team successfully designed, developed, and integrated AI-powered productivity features, recommendation systems, and data-driven solutions to enhance the academic experience for students.",
+      desktopImage: "/images/projects/kawankampus.webp",
+      mobileImage: "/images/projects/kawankampus2.webp",
+      timeline: "Feb 2026 - Juli 2026",
+      techs: ["React", "Node.js","Express.js", "PostgreSQL", "Tailwind CSS", "OpenAI API"],
       features: [
-        "<strong>AI Study Assistant:</strong> Generates automated quiz modules and calendar schedules by analyzing lecture notes.",
-        "<strong>Real-time Group Workspaces:</strong> Collaborative markdown pads, shared checklists, and instantaneous voice canvas widgets.",
-        "<strong>Gamified Task Progressions:</strong> Level up and tracking algorithms that map productivity patterns against class goals."
+        "<strong>AI Academic Assistant:</strong> Provides instant academic support through AI-powered conversations, helping students brainstorm ideas, answer study-related questions, and access learning resources.",
+        "<strong>Kanban Task Management:</strong> Organizes academic workloads using a structured workflow with To Do, In Progress, and Done stages to track assignments efficiently.",
+        "<strong>Location-Based Recommendations:</strong> Helps students discover nearby places such as photocopy services, study spaces, restaurants, and stationery stores based on campus location and preferences.",
+        "<strong>Interactive Campus Map:</strong> Displays recommended locations through an integrated digital map for easier navigation and exploration around campus.",
+        "<strong>Favorites & Activity History:</strong> Allows users to save important locations, revisit previous interactions, and manage recommendation and AI usage history."
       ],
       contributions: [
-        "Designed and implemented the responsive UI layouts and clean interactive user interfaces.",
-        "Integrated the OpenAI API to process lecture notes and automatically generate calendar study tracks.",
-        "Created real-time collaborative state logic for shared document editing workspaces."
+        "Designed and implemented responsive UI/UX interfaces to deliver a seamless and user-friendly academic platform.",
+        "Developed frontend features, integrated REST APIs, and connected AI-powered services to support student productivity workflows.",
+        "Designed PostgreSQL database structures and optimized data management processes for scalability and performance.",
+        "Conducted testing, debugging, and performance optimization, contributing to Google PageSpeed scores of 89 on Mobile and 99 on Desktop."
       ],
       demoLink: "https://kawankampus-nine.vercel.app/",
       mockupBg: "bg-gradient-to-br from-slate-100 to-indigo-100",
@@ -89,216 +85,174 @@ export default function ProjectsSection() {
     },
     {
       id: 2,
-      title: "PASTI",
-      category: "Web Application",
-      description: "An inclusive compliance dashboard designed around Web Content Accessibility Guidelines (WCAG), delivering instant overlay scripts and automated accessibility compliance audits.",
-      visualHtml: (
-        <div className="absolute inset-0 bg-gradient-to-br from-zinc-900 to-slate-800 flex items-center justify-center p-6 md:p-8 overflow-hidden select-none">
-          <div className="absolute inset-0 bg-[radial-gradient(#3f3f46_1px,transparent_1px)] [background-size:16px_16px] opacity-60"></div>
-          {/* Tablet Mockup */}
-          <div className="relative w-[80%] md:w-auto md:h-[82%] aspect-[4/3] transition-transform duration-700 ease-out group-hover:scale-105 group-hover:-rotate-1">
-            <div className="absolute inset-0 bg-black/45 rounded-2xl blur-2xl transform translate-y-8 scale-90"></div>
-            <div className="relative h-full bg-[#1e1e1e] p-2.5 rounded-2xl border border-neutral-800 shadow-2xl flex flex-col justify-between">
-              <div className="relative flex-1 bg-zinc-950 rounded-lg overflow-hidden flex flex-col justify-between p-4">
-                <div className="flex justify-between items-center text-neutral-400">
-                  <div className="flex items-center gap-1.5">
-                    <FaEyeLowVision className="text-emerald-400 text-xs" />
-                    <span className="text-[8px] tracking-wide font-bold text-white uppercase">PASTI ACCESSIBILITY</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <span className="text-[7px] text-zinc-500">Contrast: AAA</span>
-                    <div className="w-2 h-2 rounded-full bg-emerald-400"></div>
-                  </div>
-                </div>
-                <div className="my-auto space-y-2 text-center">
-                  <div className="text-white text-xs font-bold max-w-[200px] mx-auto">Adaptive User Interfaces for Diverse Abilities</div>
-                  <div className="flex justify-center items-center space-x-1 py-1">
-                    <span className="w-1 h-3 bg-emerald-500 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></span>
-                    <span className="w-1 h-6 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></span>
-                    <span className="w-1 h-8 bg-emerald-300 rounded-full animate-bounce" style={{ animationDelay: '0.3s' }}></span>
-                    <span className="w-1 h-5 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }}></span>
-                    <span className="w-1 h-2 bg-emerald-500 rounded-full animate-bounce" style={{ animationDelay: '0.5s' }}></span>
-                  </div>
-                  <p className="text-[7px] text-zinc-400 max-w-[180px] mx-auto leading-relaxed">Empowering digital accessibility compliance, user magnification modules, and screen narration overlays.</p>
-                </div>
-                <div className="grid grid-cols-2 gap-2 text-left">
-                  <div className="bg-zinc-900 border border-zinc-800 rounded p-1.5 flex justify-between items-center">
-                    <span className="text-[6px] text-zinc-300">Screen Reader Mode</span>
-                    <span className="text-[5px] bg-emerald-500/20 text-emerald-400 px-1 py-0.5 rounded font-bold">ACTIVE</span>
-                  </div>
-                  <div className="bg-zinc-900 border border-zinc-800 rounded p-1.5 flex justify-between items-center">
-                    <span className="text-[6px] text-zinc-300">Color Blindness Filter</span>
-                    <span className="text-[5px] bg-zinc-800 text-zinc-400 px-1 py-0.5 rounded font-bold">DEACTIVE</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      ),
-      techs: ["Next.js", "Express.js", "Puppeteer Web Scraper", "Tailwind CSS", "Aria Labs Engine"],
+      title: "ThriftCycle",
+      category: "Mobile Design",
+      description: "ThriftCycle is a sustainability-focused mobile application for sharing and exchanging reusable items. Developed by Wahyudi Alfurqon (UI/UX Designer & Front-End Flutter Developer), Muhammad Tri Setianto (Back-End Developer), and Muhammad Reizan (Front-End Developer), the platform promotes responsible consumption through a simple and accessible user experience.",
+      desktopImage: "/images/projects/thriftscycle.webp",
+      mobileImage: "/images/projects/thriftcycle2.webp",
+      timeline: "Mei 2025 - Juni 2025",
+      techs: ["Figma", "Flutter", "Laravel", "Mysql"],
       features: [
-        "<strong>Real-time Audit Scanners:</strong> Highlights color contrast ratio faults, keyboard navigation hitches, and missing image alternative tokens.",
-        "<strong>Accessibility Overlay Toolbar:</strong> Instantly allows visitors to activate text-to-speech, layout spacing increases, and colorblind filters.",
-        "<strong>Compliance Reporting:</strong> Export compliant and certified PDF layouts detailing strict guidelines met by the organization."
+        "<strong>Item Sharing Platform:</strong> Allows users to donate, exchange, and discover reusable items within the community.",
+        "<strong>Quick Item Listing:</strong> Users can easily upload item photos, descriptions, and availability details.",
+        "<strong>Sustainable Lifestyle Support:</strong> Encourages waste reduction by extending the lifecycle of usable products.",
+        "<strong>User-Friendly Mobile Experience:</strong> Designed with intuitive navigation and responsive interactions for seamless usage.",
+        "<strong>Flutter-Powered Performance:</strong> Built using Flutter and Dart to deliver a fast and consistent cross-platform experience."
       ],
       contributions: [
-        "Created inclusive UI theme controls conforming to strict WCAG AAA color contrast constraints.",
-        "Built overlay adjustment controls for layout magnification, text-to-speech narration, and contrast filters.",
-        "Implemented backend scanner modules using headless page loaders to audit website accessibility."
+        "Designed the complete UI/UX experience, including user flows, wireframes, and high-fidelity mobile interfaces.",
+        "Developed responsive frontend features using Flutter and Dart to ensure smooth user interactions.",
+        "Collaborated closely with backend development to integrate application features and data flows.",
+        "Contributed to project refinement and testing, helping the application achieve an evaluation score of 98/100."
       ],
-      demoLink: "#",
-      mockupBg: "bg-gradient-to-br from-zinc-900 to-slate-800",
-      mockupIcon: <FaEyeLowVision />
+      demoLink: "https://www.figma.com/proto/yfUo2lWGXfAXikwaTMDJms/ThriftCycle?node-id=1-2112&t=r54kPAclrTaJYj3q-1&scaling=scale-down&content-scaling=fixed&page-id=1%3A2&starting-point-node-id=1%3A2112&show-proto-sidebar=1",
+      mockupBg: "bg-gradient-to-br from-amber-100 to-orange-100",
+      mockupIcon: <FaMobileScreenButton />,
+      secondaryLink: {
+        label: "Figma Project",
+        url: "https://www.figma.com/design/yfUo2lWGXfAXikwaTMDJms/ThriftCycle?node-id=1-2&t=pFqVj3Yx45lzpo4G-1"
+      }
     },
     {
       id: 3,
-      title: "ThriftCycle",
-      category: "Mobile Application",
-      description: "A gorgeous, user-to-user marketplace and circular apparel trade application emphasizing high visual presence, carbon-neutral logistics, and verified eco-scores.",
-      visualHtml: (
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-50 to-orange-100 flex items-center justify-center p-6 md:p-8 overflow-hidden select-none">
-          <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-60"></div>
-          {/* Mobile Mockup */}
-          <div className="relative h-[80%] md:h-[85%] aspect-[9/19] transition-transform duration-700 ease-out group-hover:scale-105 group-hover:rotate-2">
-            <div className="absolute inset-0 bg-neutral-900/15 rounded-[36px] blur-xl transform translate-y-7 scale-95"></div>
-            <div className="relative h-full bg-[#1a1a1a] p-2 rounded-[32px] border border-neutral-800 shadow-2xl flex flex-col justify-between">
-              <div className="relative flex-1 bg-white rounded-[24px] overflow-hidden flex flex-col justify-between p-3.5">
-                <div className="flex justify-between items-center text-[7px] text-stone-600 px-1">
-                  <span className="font-bold">9:41</span>
-                  <div className="flex items-center gap-1">
-                    <FaWifi />
-                    <FaBatteryThreeQuarters />
-                  </div>
-                </div>
-                <div className="my-auto space-y-2.5 flex-1 mt-4">
-                  <div className="flex justify-between items-center">
-                    <div className="flex items-center gap-1">
-                      <div className="w-3.5 h-3.5 rounded-full bg-stone-900 flex items-center justify-center text-[6px] text-white">♻️</div>
-                      <span className="text-[8px] font-bold">ThriftCycle</span>
-                    </div>
-                    <FaBagShopping className="text-stone-700 text-[8px]" />
-                  </div>
-                  <div className="bg-[#111111] text-white p-2 rounded-xl text-left relative overflow-hidden">
-                    <span className="text-[5px] uppercase text-emerald-400 font-bold">Sustainable Fashion</span>
-                    <h5 className="text-[8px] font-bold mt-0.5 leading-tight">Zero Waste Shopping</h5>
-                  </div>
-                  <div className="grid grid-cols-2 gap-1.5">
-                    <div className="bg-stone-50 rounded-lg p-1 text-left relative border border-stone-100">
-                      <div className="aspect-square bg-stone-200 rounded-md mb-1 flex items-center justify-center text-xs">🧥</div>
-                      <span className="text-[5px] text-stone-400">Vintage Jacket</span>
-                      <div className="text-[6px] font-bold text-stone-800">$24.00</div>
-                      <span className="absolute top-1 right-1 text-[4px] bg-emerald-500/10 text-emerald-600 px-0.5 py-0.2 rounded font-bold">Eco A</span>
-                    </div>
-                    <div className="bg-stone-50 rounded-lg p-1 text-left relative border border-stone-100">
-                      <div className="aspect-square bg-stone-200 rounded-md mb-1 flex items-center justify-center text-xs">👟</div>
-                      <span className="text-[5px] text-stone-400">Eco Sneakers</span>
-                      <div className="text-[6px] font-bold text-stone-800">$48.00</div>
-                      <span className="absolute top-1 right-1 text-[4px] bg-emerald-500/10 text-emerald-600 px-0.5 py-0.2 rounded font-bold">Eco A+</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="bg-stone-100 rounded-full py-1.5 px-3 flex justify-between items-center text-[7px] text-stone-600">
-                  <FaHouse className="text-stone-900" />
-                  <FaMagnifyingGlass />
-                  <FaCirclePlus />
-                  <FaUser />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      ),
-      techs: ["React Native", "Tailwind CSS", "GraphQL", "Supabase", "Stripe API"],
-      features: [
-        "<strong>Carbon Eco-Rating System:</strong> Instantly evaluates listed fashion items relative to materials and assigns detailed green certifications.",
-        "<strong>Circular Exchange Ledger:</strong> Users can effortlessly coordinate direct trades, shipping returns, and local wardrobe drops.",
-        "<strong>Stylist AI Feed Selection:</strong> Personalized outfit matching powered by machine vision analysis of user taste portfolios."
-      ],
-      contributions: [
-        "Architected clean card carousel views and screen transition systems for smooth navigation flows.",
-        "Integrated Supabase databases and Stripe API to process peer-to-peer checkout transactions.",
-        "Designed and coded the algorithm that calculates material eco-ratings for vintage products."
-      ],
-      demoLink: "#",
-      mockupBg: "bg-gradient-to-br from-amber-100 to-orange-100",
-      mockupIcon: <FaMobileScreenButton />
-    },
-    {
-      id: 4,
       title: "Sumsel United",
       category: "Information System",
-      description: "A robust digital management portal, fan engagement stadium gateway, and athletic data aggregator customized for team administration and league metrics.",
-      visualHtml: (
-        <div className="absolute inset-0 bg-gradient-to-br from-[#064e3b]/5 to-[#047857]/10 flex items-center justify-center p-6 md:p-8 overflow-hidden select-none">
-          <div className="absolute inset-0 bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:16px_16px] opacity-30"></div>
-          {/* Laptop Mockup */}
-          <div className="relative w-[82%] md:w-auto md:h-[80%] aspect-[16/10] transition-transform duration-700 ease-out group-hover:scale-105 group-hover:-rotate-2">
-            <div className="absolute inset-0 bg-black/15 rounded-lg blur-2xl transform translate-y-6 scale-95"></div>
-            <div className="relative h-full bg-[#111] p-2 pb-2.5 rounded-2xl border border-neutral-800 shadow-2xl flex flex-col justify-between">
-              <div className="relative flex-1 bg-zinc-950 rounded-lg overflow-hidden flex flex-col justify-between">
-                <div className="bg-zinc-900 px-3 py-2 flex items-center justify-between border-b border-zinc-800">
-                  <div className="flex items-center gap-1">
-                    <div className="w-3.5 h-3.5 rounded-full bg-emerald-600 flex items-center justify-center text-[7px] text-white">⚽</div>
-                    <span className="text-[8px] font-bold text-white tracking-wide">Sumsel United</span>
-                  </div>
-                  <div className="w-12 h-2.5 rounded-full bg-emerald-500/20 flex items-center justify-center text-[5px] text-emerald-400 font-bold uppercase">LIVE HUB</div>
-                </div>
-                <div className="p-3 flex-1 flex flex-col justify-between">
-                  <div className="flex justify-between items-start text-left mb-2">
-                    <div>
-                      <h6 className="text-[8px] font-bold text-zinc-300">Sumatera Sports Analytics</h6>
-                      <h5 className="text-xs font-bold text-white leading-tight">Next Match: 22 June 2026</h5>
-                    </div>
-                    <div className="text-right">
-                      <span className="text-[6px] text-zinc-400">Roster Health</span>
-                      <div className="text-[8px] font-bold text-emerald-400">96.5% Solid</div>
-                    </div>
-                  </div>
-                  <div className="grid grid-cols-3 gap-1.5 flex-1 items-center">
-                    <div className="bg-zinc-900/80 rounded-md p-1.5 border border-zinc-800 text-left">
-                      <span className="text-[5px] text-zinc-500">Active Fan Club</span>
-                      <h6 className="text-[10px] font-bold text-emerald-400">14.2k</h6>
-                      <div className="w-full bg-zinc-800 h-1 rounded-full mt-1 overflow-hidden">
-                        <div className="bg-emerald-400 h-full" style={{ width: '78%' }}></div>
-                      </div>
-                    </div>
-                    <div className="bg-zinc-900/80 rounded-md p-1.5 border border-zinc-800 text-left">
-                      <span className="text-[5px] text-zinc-500">Win Rate Ratio</span>
-                      <h6 className="text-[10px] font-bold text-yellow-400">84.2%</h6>
-                      <div className="w-full bg-zinc-800 h-1 rounded-full mt-1 overflow-hidden">
-                        <div className="bg-yellow-400 h-full" style={{ width: '84%' }}></div>
-                      </div>
-                    </div>
-                    <div className="bg-zinc-900/80 rounded-md p-1.5 border border-zinc-800 text-left flex flex-col justify-between">
-                      <span className="text-[5px] text-zinc-500">Pro Players</span>
-                      <h6 className="text-[10px] font-bold text-indigo-400">42 Members</h6>
-                      <div className="w-full bg-zinc-800 h-1 rounded-full mt-1 overflow-hidden">
-                        <div className="bg-indigo-400 h-full" style={{ width: '65%' }}></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="h-1 w-16 mx-auto bg-neutral-600 rounded-b-md shadow-md"></div>
-          </div>
-        </div>
-      ),
-      techs: ["VueJS", "PostgreSQL", "Tailwind CSS", "D3.js Charts", "Socket.io"],
+      description: "Sumsel United Web is an official digital platform designed to provide match information, ticket purchasing services, and club updates for supporters of Sumsel United. Developed during an internship at the Dinas Komunikasi dan Informatika Provinsi Sumatera Selatan, Wahyudi Alfurqon contributed as a Full Stack Web Developer, building core system features, developing backend services, designing responsive interfaces, and delivering seamless user experiences through fullstack web development.",
+      desktopImage: "/images/projects/sumselunited.webp",
+      mobileImage: "/images/projects/sumselunited2.webp",
+      timeline: "Oct 2025 - Des 2025",
+      techs: ["Laravel", "My Sql", "Tailwind CSS", "PHP"],
       features: [
-        "<strong>Athletic Performance Analytics:</strong> Monitors fitness levels, player roster speed, and strategic performance ratios in clear visualizations.",
-        "<strong>Fan Engagement Gateway:</strong> Streamlines fan membership profiles, digital entry ticketing, and exclusive live game updates.",
-        "<strong>Interactive Tactician Board:</strong> Real-time visual playbook editor enabling coaches to update coordinates and notify athletic rosters."
+        "<strong>Match Information Hub:</strong> Access match schedules, results, standings, and team updates in one centralized platform.",
+        "<strong>Online Ticketing System:</strong> Purchase match tickets through a streamlined and user-friendly checkout process.",
+        "<strong>Official Club News:</strong> Receive verified announcements, match reports, and club-related information directly from the platform.",
+        "<strong>Admin Management Dashboard:</strong> Manage match data, news content, ticketing information, and user activities efficiently.",
+        "<strong>Responsive User Experience:</strong> Optimized for desktop and mobile devices to ensure accessibility across platforms."
       ],
       contributions: [
-        "Developed interactive stadium metrics dashboards using clean vector graphic elements.",
-        "Implemented coordinate synchronization systems to support athletic playbook visual editors.",
-        "Built secure entry pass validators to facilitate digital stadium check-ins for fan clubs."
+        "Developed the fullstack web application using Laravel 12 and MySQL.",
+        "Implemented 45+ use cases covering both public user and administrative workflows.",
+        "Built 15+ backend features including match management, standings, news, and ticketing systems.",
+        "Designed and developed 20+ responsive user interfaces using Tailwind CSS.",
+        "Integrated frontend and backend services to support complete end-to-end user journeys."
       ],
       demoLink: "#",
       mockupBg: "bg-gradient-to-br from-emerald-950 to-teal-900",
       mockupIcon: <FaFutbol />
+    },
+    {
+      id: 4,
+      title: "EcoCycle",
+      category: "Mobile Design",
+      description: "EcoCycle is an AI-powered mobile application prototype designed to encourage sustainable waste management through education, community engagement, and personalized recycling experiences. The project was developed for the SIFEST Competition hosted by Universitas Kristen Satya Wacana (UKSW) by a team consisting of Wahyudi Alfurqon (UI Designer), Muhammad Radja Juang Jamemiko, and Migel Orvin. As the UI Designer, Wahyudi was responsible for crafting the overall user experience and visual design, resulting in a user-centered prototype that achieved a final score of 89.33 from the competition judges.",
+      desktopImage: "/images/projects/ecocycle.webp",
+      mobileImage: "/images/projects/ecocycle2.webp",
+      timeline: "Sep 2025",
+      techs: ["Figma"],
+      features: [
+        "<strong>Smart Recycling Education:</strong> Provides educational content and interactive guidance to encourage sustainable waste management habits.",
+        "<strong>AI-Powered Personalization:</strong> Delivers tailored recommendations and recycling insights based on user behavior and preferences.",
+        "<strong>Eco Community Network:</strong> Connects users with recycling banks, green businesses, and eco-conscious communities.",
+        "<strong>Reward-Based Sustainability:</strong> Encourages positive environmental actions through engagement and achievement-driven experiences.",
+        "<strong>Accessible User Experience:</strong> Designed with usability and inclusivity principles to ensure a seamless experience for diverse users."
+      ],
+      contributions: [
+        "Designed the complete UI/UX experience and visual identity of the application using Figma.",
+        "Created 30+ mobile screens and designed 3 core AI-powered features focused on accessibility and personalization.",
+        "Developed responsive and interactive prototypes to validate user flows across normal and emergency scenarios.",
+        "Collaborated with team members to maintain design consistency and ensure timely project delivery.",
+        "Presented the final prototype to competition judges, contributing to a final score of 89.33."
+      ],
+      demoLink: "https://www.figma.com/proto/3AYo5eQXG0KpsGJbfx0joF/ECOCYCLE_KERANGAJAIB?node-id=6-100&t=Gmp8SSE3fR7Keq3N-1&scaling=scale-down&content-scaling=fixed&page-id=1%3A3&starting-point-node-id=7%3A5&show-proto-sidebar=1",
+      mockupBg: "bg-gradient-to-br from-emerald-100 to-green-200",
+      mockupIcon: <FaLaptopCode />,
+      secondaryLink: {
+        label: "Figma Project",
+        url: "https://www.figma.com/design/3AYo5eQXG0KpsGJbfx0joF/ECOCYCLE_KERANGAJAIB?node-id=1-3&t=RO6XG7TO9w2FgeCu-1"
+      }
+    },
+    {
+      id: 5,
+      title: "Pitch Planner",
+      category: "Web Application",
+      description: "IPL Match Scheduler is a web-based scheduling optimization system developed as an academic project for the Algorithmic Strategy course. The project compares the effectiveness of Greedy and Backtracking algorithms in generating Indian Premier League (IPL) 2022 match schedules while minimizing conflicts related to match timing and venue allocation. Developed independently by Wahyudi Alfurqon as a Full Stack Developer, the system demonstrates how algorithmic approaches can solve real-world scheduling problems through efficient decision-making and optimization techniques.",
+      desktopImage: "/images/projects/pitchplanner.webp",
+      mobileImage: "/images/projects/pitchplanner2.webp",
+      timeline: "Mei 2026 - Jun 2026",
+      techs: ["React.Js", "Rest API"],
+      features: [
+        "<strong>Automated Match Scheduling:</strong> Generates IPL 2022 match schedules automatically based on predefined constraints and optimization rules.",
+        "<strong>Greedy Algorithm Optimization:</strong> Selects locally optimal scheduling decisions to reduce conflicts and improve efficiency.",
+        "<strong>Backtracking Comparison:</strong> Evaluates alternative scheduling possibilities to compare optimization outcomes against the Greedy approach.",
+        "<strong>Conflict Detection:</strong> Identifies scheduling issues such as overlapping match times and venue conflicts.",
+        "<strong>Interactive Schedule Visualization:</strong> Displays generated schedules and optimization results through a responsive React-based interface."
+      ],
+      contributions: [
+        "Designed and developed the complete web application as a Full Stack Developer.",
+        "Implemented Greedy and Backtracking algorithms to compare scheduling optimization strategies.",
+        "Integrated IPL 2022 match data through REST API services and processed scheduling constraints dynamically.",
+        "Built responsive interfaces using React to visualize schedules, conflicts, and optimization results.",
+        "Conducted algorithm performance analysis to evaluate efficiency and scheduling accuracy."
+      ],
+      demoLink: "https://pitchplanner-demo.netlify.app/",
+      mockupBg: "bg-gradient-to-br from-purple-100 to-indigo-100",
+      mockupIcon: <FaLaptopCode />
+    },
+    {
+      id: 6,
+      title: "PT. Rex Technology",
+      category: "Company Profile Website",
+      description: "Rextechnology Company Profile is a multilingual corporate website developed for PT Rextechnology to strengthen the company's digital presence and showcase its services through a modern and professional web experience. The project was developed by Wahyudi Alfurqon as a Full Stack Developer, responsible for designing and implementing a scalable multipage architecture, bilingual content support, responsive user interfaces, and performance optimization. Built with Next.js, the website achieved Lighthouse scores of 98 Performance, 96 Best Practices, and 91 SEO, ensuring an optimized experience across devices and search engines.",
+      desktopImage: "/images/projects/rextechnology.webp",
+      mobileImage: "/images/projects/rextechnology2.webp",
+      timeline: "Mar 2026 - Apr 2026",
+      techs: ["Next.js", "TypeScript", "Tailwind CSS"],
+      features: [
+        "<strong>Corporate Company Profile:</strong> Presents company information, services, and business solutions through a professional digital presence.",
+        "<strong>Multi-Page Architecture:</strong> Structured navigation and dedicated pages for improved content organization and scalability.",
+        "<strong>Multi-Language Support:</strong> Enables visitors to access content in multiple languages for broader audience reach.",
+        "<strong>Responsive Design:</strong> Delivers a seamless experience across desktop, tablet, and mobile devices.",
+        "<strong>Performance & SEO Optimization:</strong> Optimized for fast loading, accessibility, search engine visibility, and best development practices."
+      ],
+      contributions: [
+        "Designed and developed the complete company profile website using Next.js with a scalable multipage architecture.",
+        "Implemented bilingual support to provide seamless content accessibility for multiple audiences.",
+        "Built responsive and professional user interfaces optimized for desktop, tablet, and mobile devices.",
+        "Optimized website performance, accessibility, and SEO, achieving Lighthouse scores of 98 Performance, 96 Best Practices, and 91 SEO.",
+        "Managed both frontend implementation and deployment preparation to ensure production readiness."
+      ],
+      demoLink: "https://rextech.id/en/",
+      mockupBg: "bg-gradient-to-br from-zinc-800 to-neutral-900",
+      mockupIcon: <FaLaptopCode />
+    },
+    {
+      id: 7,
+      title: "Skillora",
+      category: "Web Design",
+      description: "Skillora is an AI-powered career development platform concept designed to help students and fresh graduates understand their personalities, explore career opportunities, and improve professional readiness through AI-assisted features. The project was created by Wahyudi Alfurqon, Adit Jansa, and Afna Putra Yulianto as a UI/UX Design Team, focusing on user research, interface design, user flow, and interactive prototyping.",
+      desktopImage: "/images/projects/skillora.webp",
+      mobileImage: "/images/projects/skillora2.webp",
+      timeline: "Nov 2025",
+      techs: ["Figma"],
+      features: [
+        "<strong>Lora Personality Test:</strong> Interactive personality assessment designed to identify user strengths and work preferences.",
+        "<strong>Job Matching Experience:</strong> Personalized job recommendation flow based on personality and career interests.",
+        "<strong>AI Career Mentor:</strong> Conversational career guidance interface powered by AI-driven assistance.",
+        "<strong>CV Analyzer:</strong> Resume evaluation experience that provides insights and improvement suggestions."
+      ],
+      contributions: [
+        "Designed user flows, wireframes, and high-fidelity interfaces for key platform features.",
+        "Created interactive prototypes for personality testing, job matching, CV analysis, and AI mentoring experiences.",
+        "Conducted UI exploration and design system development to ensure visual consistency.",
+        "Collaborated with the design team to deliver a user-centered and engaging product experience."
+      ],
+      demoLink: "https://www.figma.com/proto/xs5IUbIpySt7Z2GXUOQMOA/SKILLORA-RAJAWALI-CREATIFY?node-id=129-312&p=f&t=YtfiiJXqxmzoItoA-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=129%3A312",
+      mockupBg: "bg-gradient-to-br from-blue-100 to-sky-200",
+      mockupIcon: <FaLaptopCode />,
+      secondaryLink: {
+        label: "Figma Project",
+        url: "https://www.figma.com/design/xs5IUbIpySt7Z2GXUOQMOA/SKILLORA-RAJAWALI-CREATIFY?node-id=0-1&t=5uQwB3TzVPAubdVN-1"
+      }
     }
   ], []);
 
@@ -453,11 +407,20 @@ export default function ProjectsSection() {
 
               {/* Visual Mockup Area */}
               <div className="absolute inset-0 w-full h-full overflow-hidden">
-                {project.visualHtml}
+                <img 
+                  src={project.desktopImage} 
+                  alt={`${project.title} Desktop`} 
+                  className="hidden md:block w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 select-none pointer-events-none"
+                />
+                <img 
+                  src={project.mobileImage} 
+                  alt={`${project.title} Mobile`} 
+                  className="block md:hidden w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 select-none pointer-events-none"
+                />
               </div>
               
               {/* Hover Dark Overlay Info Area */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-6 md:p-8 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 pointer-events-auto md:pointer-events-none md:group-hover:pointer-events-auto z-10">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent flex flex-col justify-end p-6 md:p-8 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 pointer-events-auto md:pointer-events-none md:group-hover:pointer-events-auto z-10">
                 <div className="transform translate-y-0 md:translate-y-4 md:group-hover:translate-y-0 transition-transform duration-300 flex justify-between items-end text-white">
                   <div className="space-y-1 pr-4">
                     <span className="text-xs font-bold uppercase tracking-widest text-white/60">
@@ -516,7 +479,11 @@ export default function ProjectsSection() {
             <>
               {/* Left Side: Mockup Image / Visual HTML */}
               <div className="w-full lg:w-[55%] h-[260px] lg:h-full relative overflow-hidden bg-neutral-100 flex-shrink-0 border-r border-black/5">
-                {activeProject.visualHtml}
+                <img 
+                  src={activeProject.desktopImage} 
+                  alt={activeProject.title} 
+                  className="w-full h-full object-cover select-none pointer-events-none"
+                />
               </div>
 
               {/* Right Side: Details Pane */}
@@ -539,8 +506,8 @@ export default function ProjectsSection() {
                     
                     {/* Category & Title */}
                     <div className="space-y-2">
-                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 text-indigo-600 text-[10px] font-bold uppercase tracking-wider">
-                        <span className="w-1.5 h-1.5 rounded-full bg-indigo-600 animate-pulse"></span>
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-[10px] font-bold uppercase tracking-wider">
+                        <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse"></span>
                         {activeProject.category}
                       </span>
                       <h3 className="text-2xl lg:text-3xl font-black text-neutral-900 tracking-tight leading-tight uppercase">
@@ -551,7 +518,7 @@ export default function ProjectsSection() {
                     {/* Metadata Cards */}
                     <div className="grid grid-cols-2 gap-3 border-t border-b border-black/5 py-4">
                       <div className="bg-neutral-50/80 border border-neutral-100 p-3 rounded-2xl flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-sm flex-shrink-0">
+                        <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-sm flex-shrink-0">
                           <FaUser />
                         </div>
                         <div>
@@ -559,21 +526,23 @@ export default function ProjectsSection() {
                             Role
                           </span>
                           <span className="text-xs font-bold text-neutral-800">
-                            {activeProject.id === 3 ? "Mobile Developer" : "Web Developer"}
+                            {["EcoCycle", "ThriftCycle", "Skillora"].includes(activeProject.title) 
+                              ? "UI/UX Designer" 
+                              : "Fullstack Web Developer"}
                           </span>
                         </div>
                       </div>
                       
                       <div className="bg-neutral-50/80 border border-neutral-100 p-3 rounded-2xl flex items-center gap-3">
                         <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-sm flex-shrink-0">
-                          {activeProject.id === 3 ? <FaMobileScreenButton /> : <FaLaptopCode />}
+                          {activeProject.category === "Mobile Application" ? <FaMobileScreenButton /> : <FaLaptopCode />}
                         </div>
                         <div>
                           <span className="text-[9px] uppercase font-bold text-neutral-400 tracking-wider block">
                             Timeline
                           </span>
                           <span className="text-xs font-bold text-neutral-800">
-                            {activeProject.id === 1 ? "Nov 2025 - Jan 2026" : activeProject.id === 2 ? "Aug 2025 - Oct 2025" : "Feb 2026 - Present"}
+                            {activeProject.timeline}
                           </span>
                         </div>
                       </div>
@@ -598,7 +567,7 @@ export default function ProjectsSection() {
                         {activeProject.techs.map((tech, idx) => (
                           <span 
                             key={idx} 
-                            className="px-2.5 py-1 bg-indigo-50/40 border border-indigo-100/40 text-indigo-700 rounded-md text-[9px] font-bold tracking-wider uppercase transition-colors cursor-default"
+                            className="px-2.5 py-1 bg-blue-50/40 border border-blue-100/40 text-blue-700 rounded-md text-[9px] font-bold tracking-wider uppercase transition-colors cursor-default"
                           >
                             {tech}
                           </span>
@@ -614,7 +583,7 @@ export default function ProjectsSection() {
                       <ul className="space-y-2.5 text-neutral-700">
                         {activeProject.features.map((feature, idx) => (
                           <li key={idx} className="flex items-start gap-3 text-xs leading-relaxed">
-                            <span className="w-5 h-5 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center flex-shrink-0 mt-0.5 text-[10px]">
+                            <span className="w-5 h-5 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 mt-0.5 text-[10px]">
                               <FaCircleCheck />
                             </span>
                             <span 
@@ -646,16 +615,46 @@ export default function ProjectsSection() {
 
                 {/* Fixed Footer Action */}
                 <div className="p-6 md:px-8 border-t border-black/5 bg-white flex-shrink-0 z-20">
-                  <a 
-                    id="modalActionLink" 
-                    href={activeProject?.demoLink || '#'} 
-                    target="_blank" 
-                    rel="noreferrer noopener"
-                    className="w-full py-3.5 bg-gradient-to-r from-neutral-900 to-neutral-800 hover:from-indigo-600 hover:to-indigo-500 active:scale-[0.98] rounded-full text-xs font-bold text-white transition-all duration-300 shadow-md flex items-center justify-center gap-2 cursor-pointer uppercase tracking-wider"
-                  >
-                    <span>Check Live Project</span>
-                    <FaArrowUpRightFromSquare className="text-xs" />
-                  </a>
+                  {activeProject?.secondaryLink ? (
+                    <div className="flex flex-col sm:flex-row gap-3">
+                      <a 
+                        href={activeProject.demoLink} 
+                        target="_blank" 
+                        rel="noreferrer noopener"
+                        className="flex-1 py-3.5 bg-gradient-to-r from-neutral-900 to-neutral-800 hover:from-blue-600 hover:to-blue-500 active:scale-[0.98] rounded-full text-xs font-bold text-white transition-all duration-300 shadow-md flex items-center justify-center gap-2 cursor-pointer uppercase tracking-wider"
+                      >
+                        <span>Check Live Demo</span>
+                        <FaArrowUpRightFromSquare className="text-xs" />
+                      </a>
+                      <a 
+                        href={activeProject.secondaryLink.url} 
+                        target="_blank" 
+                        rel="noreferrer noopener"
+                        className="flex-1 py-3.5 bg-neutral-100 hover:bg-neutral-200 active:scale-[0.98] rounded-full text-xs font-bold text-neutral-800 transition-all duration-300 border border-black/5 flex items-center justify-center gap-2 cursor-pointer uppercase tracking-wider"
+                      >
+                        <span>{activeProject.secondaryLink.label}</span>
+                        <FaArrowUpRightFromSquare className="text-xs" />
+                      </a>
+                    </div>
+                  ) : activeProject?.demoLink === "#" || !activeProject?.demoLink ? (
+                    <button 
+                      disabled
+                      className="w-full py-3.5 bg-neutral-100 text-neutral-400 rounded-full text-xs font-bold transition-all duration-300 flex items-center justify-center gap-2 cursor-not-allowed uppercase tracking-wider border border-black/5"
+                    >
+                      <span>Live Demo Coming Soon</span>
+                    </button>
+                  ) : (
+                    <a 
+                      id="modalActionLink" 
+                      href={activeProject.demoLink} 
+                      target="_blank" 
+                      rel="noreferrer noopener"
+                      className="w-full py-3.5 bg-gradient-to-r from-neutral-900 to-neutral-800 hover:from-blue-600 hover:to-blue-500 active:scale-[0.98] rounded-full text-xs font-bold text-white transition-all duration-300 shadow-md flex items-center justify-center gap-2 cursor-pointer uppercase tracking-wider"
+                    >
+                      <span>Check Live Project</span>
+                      <FaArrowUpRightFromSquare className="text-xs" />
+                    </a>
+                  )}
                 </div>
 
               </div>
