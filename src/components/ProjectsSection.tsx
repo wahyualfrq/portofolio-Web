@@ -63,7 +63,7 @@ export default function ProjectsSection() {
       category: "Web Application",
       description: "Kawan Kampus was developed by a multidisciplinary team of six members consisting of Full Stack Developers, AI Engineers, and Data Scientists. The development team included Wahyudi Alfurqon and Muhammad Reizan as Full Stack Developers, Irvan Maulana and Nihlah Auliya as AI Engineers, and Ratu Silma Amalia together with Calvin Constantine Raharjo as Data Scientists. Through close cross-functional collaboration, the team successfully designed, developed, and integrated AI-powered productivity features, recommendation systems, and data-driven solutions to enhance the academic experience for students.",
       desktopImage: "/images/projects/kawankampus.webp",
-      mobileImage: "/images/projects/kawankampus2.webp",
+      mobileImage: "/images/projects/kawankampus2.png",
       timeline: "Feb 2026 - Juli 2026",
       techs: ["React", "Node.js","Express.js", "PostgreSQL", "Tailwind CSS", "OpenAI API"],
       features: [
@@ -89,7 +89,7 @@ export default function ProjectsSection() {
       category: "Mobile Design",
       description: "ThriftCycle is a sustainability-focused mobile application for sharing and exchanging reusable items. Developed by Wahyudi Alfurqon (UI/UX Designer & Front-End Flutter Developer), Muhammad Tri Setianto (Back-End Developer), and Muhammad Reizan (Front-End Developer), the platform promotes responsible consumption through a simple and accessible user experience.",
       desktopImage: "/images/projects/thriftscycle.webp",
-      mobileImage: "/images/projects/thriftcycle2.webp",
+      mobileImage: "/images/projects/thriftcycle2.png",
       timeline: "Mei 2025 - Juni 2025",
       techs: ["Figma", "Flutter", "Laravel", "Mysql"],
       features: [
@@ -119,7 +119,7 @@ export default function ProjectsSection() {
       category: "Information System",
       description: "Sumsel United Web is an official digital platform designed to provide match information, ticket purchasing services, and club updates for supporters of Sumsel United. Developed during an internship at the Dinas Komunikasi dan Informatika Provinsi Sumatera Selatan, Wahyudi Alfurqon contributed as a Full Stack Web Developer, building core system features, developing backend services, designing responsive interfaces, and delivering seamless user experiences through fullstack web development.",
       desktopImage: "/images/projects/sumselunited.webp",
-      mobileImage: "/images/projects/sumselunited2.webp",
+      mobileImage: "/images/projects/sumselunited2.png",
       timeline: "Oct 2025 - Des 2025",
       techs: ["Laravel", "My Sql", "Tailwind CSS", "PHP"],
       features: [
@@ -146,7 +146,7 @@ export default function ProjectsSection() {
       category: "Mobile Design",
       description: "EcoCycle is an AI-powered mobile application prototype designed to encourage sustainable waste management through education, community engagement, and personalized recycling experiences. The project was developed for the SIFEST Competition hosted by Universitas Kristen Satya Wacana (UKSW) by a team consisting of Wahyudi Alfurqon (UI Designer), Muhammad Radja Juang Jamemiko, and Migel Orvin. As the UI Designer, Wahyudi was responsible for crafting the overall user experience and visual design, resulting in a user-centered prototype that achieved a final score of 89.33 from the competition judges.",
       desktopImage: "/images/projects/ecocycle.webp",
-      mobileImage: "/images/projects/ecocycle2.webp",
+      mobileImage: "/images/projects/ecocycle2.png",
       timeline: "Sep 2025",
       techs: ["Figma"],
       features: [
@@ -177,7 +177,7 @@ export default function ProjectsSection() {
       category: "Web Application",
       description: "IPL Match Scheduler is a web-based scheduling optimization system developed as an academic project for the Algorithmic Strategy course. The project compares the effectiveness of Greedy and Backtracking algorithms in generating Indian Premier League (IPL) 2022 match schedules while minimizing conflicts related to match timing and venue allocation. Developed independently by Wahyudi Alfurqon as a Full Stack Developer, the system demonstrates how algorithmic approaches can solve real-world scheduling problems through efficient decision-making and optimization techniques.",
       desktopImage: "/images/projects/pitchplanner.webp",
-      mobileImage: "/images/projects/pitchplanner2.webp",
+      mobileImage: "/images/projects/pitchplanner2.png",
       timeline: "Mei 2026 - Jun 2026",
       techs: ["React.Js", "Rest API"],
       features: [
@@ -204,7 +204,7 @@ export default function ProjectsSection() {
       category: "Company Profile Website",
       description: "Rextechnology Company Profile is a multilingual corporate website developed for PT Rextechnology to strengthen the company's digital presence and showcase its services through a modern and professional web experience. The project was developed by Wahyudi Alfurqon as a Full Stack Developer, responsible for designing and implementing a scalable multipage architecture, bilingual content support, responsive user interfaces, and performance optimization. Built with Next.js, the website achieved Lighthouse scores of 98 Performance, 96 Best Practices, and 91 SEO, ensuring an optimized experience across devices and search engines.",
       desktopImage: "/images/projects/rextechnology.webp",
-      mobileImage: "/images/projects/rextechnology2.webp",
+      mobileImage: "/images/projects/rextechnology2.png",
       timeline: "Mar 2026 - Apr 2026",
       techs: ["Next.js", "TypeScript", "Tailwind CSS"],
       features: [
@@ -231,7 +231,7 @@ export default function ProjectsSection() {
       category: "Web Design",
       description: "Skillora is an AI-powered career development platform concept designed to help students and fresh graduates understand their personalities, explore career opportunities, and improve professional readiness through AI-assisted features. The project was created by Wahyudi Alfurqon, Adit Jansa, and Afna Putra Yulianto as a UI/UX Design Team, focusing on user research, interface design, user flow, and interactive prototyping.",
       desktopImage: "/images/projects/skillora.webp",
-      mobileImage: "/images/projects/skillora2.webp",
+      mobileImage: "/images/projects/skillora2.png",
       timeline: "Nov 2025",
       techs: ["Figma"],
       features: [
@@ -420,7 +420,7 @@ export default function ProjectsSection() {
               </div>
               
               {/* Hover Dark Overlay Info Area */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent flex flex-col justify-end p-6 md:p-8 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 pointer-events-auto md:pointer-events-none md:group-hover:pointer-events-auto z-10">
+              <div className="absolute bottom-0 left-0 right-0 h-[50%] md:h-[55%] bg-gradient-to-t from-black/95 via-black/50 to-transparent flex flex-col justify-end p-6 md:p-8 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 pointer-events-auto md:pointer-events-none md:group-hover:pointer-events-auto z-10">
                 <div className="transform translate-y-0 md:translate-y-4 md:group-hover:translate-y-0 transition-transform duration-300 flex justify-between items-end text-white">
                   <div className="space-y-1 pr-4">
                     <span className="text-xs font-bold uppercase tracking-widest text-white/60">
